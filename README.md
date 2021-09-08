@@ -8,11 +8,11 @@
 
 ![](https://img.shields.io/github/contributors/danhhuynh25029/CS114.M11) ![](https://img.shields.io/github/commit-activity/y/danhhuynh25029/CS114.M11)
 
-### Mục lục
+## Mục lục
 * [Giới thiệu môn học](#giới-thiệu-môn-học)
 * [Giới thiệu thành viên nhóm](#giới-thiệu-thành-viên-nhóm)
 
-### Giới thiệu môn học
+## Giới thiệu môn học
 * **Tên môn học** : Máy học
 * **Mã môn học** : CS114.M11
 * **Số tín chỉ** : 4
@@ -23,7 +23,7 @@
 | 1 | **PGS.TS. Lê Đình Duy** | *duyld@uit.edu.vn* |
 | 2 | **Ths. Phạm Nguyễn Trường An** | *truonganpn@uit.edu.vn* |
 
-### Giới thiệu thành viên nhóm
+## Giới thiệu thành viên nhóm
 | STT | MSSV | Họ và Tên | Gmail | GITHUB |
 |:--- | :-------|:----------|:------------|:------------| 
 |1|19521322|Huỳnh Ngọc Công Danh|19521322@gm.uit.edu.vn|[<img alt="" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>][0]|
