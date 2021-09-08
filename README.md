@@ -24,7 +24,7 @@
 | 2 | **Ths. Phạm Nguyễn Trường An** | *truonganpn@uit.edu.vn* |
 
 ## Giới thiệu thành viên nhóm
-| STT | MSSV | Họ và Tên | Gmail | GITHUB |
+| STT | MSSV | Họ tên | Gmail | GITHUB |
 |:--- | :-------|:----------|:------------|:------------| 
 |1|19521322|Huỳnh Ngọc Công Danh|19521322@gm.uit.edu.vn|[<img alt="" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>][0]|
 |2|19522524|Nguyễn Phú Vinh| 19522524@gm.uit.edu.vn| [<img alt="" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>][1]|
