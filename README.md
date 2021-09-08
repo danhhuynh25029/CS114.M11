@@ -4,9 +4,9 @@
   </a>
 </p>
 
-![](https://img.shields.io/github/contributors/danhhuynh25029/CS114.M11)
+<h1 align="center" >CS114.M11-Máy Học-Marchine Learning</h1>
 
-![](https://img.shields.io/github/commit-activity/y/danhhuynh25029/CS114.M11)
+![](https://img.shields.io/github/contributors/danhhuynh25029/CS114.M11) ![](https://img.shields.io/github/commit-activity/y/danhhuynh25029/CS114.M11)
 
 ### Mục lục
 * [Giới thiệu môn học](#giới-thiệu-môn-học)
