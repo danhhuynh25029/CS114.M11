@@ -1,5 +1,8 @@
-<h1 align="center">CS114.M11-Máy Học-Marchine Learning</h1>
-
+<p align="center">
+  <a href="https://www.uit.edu.vn/" title="Trường Đại học Công nghệ Thông tin" style="border: none;">
+    <img src="https://i.imgur.com/WmMnSRt.png" alt="Trường Đại học Công nghệ Thông tin | University of Information Technology">
+  </a>
+</p>
 ![](https://img.shields.io/github/contributors/danhhuynh25029/CS114.M11)
 ![](https://img.shields.io/github/commit-activity/y/danhhuynh25029/CS114.M11)
 
