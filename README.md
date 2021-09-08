@@ -11,16 +11,18 @@
 ### Mục lục
 * [Giới thiệu môn học](#giới-thiệu-môn-học)
 * [Giới thiệu thành viên nhóm](#giới-thiệu-thành-viên-nhóm)
+
 ### Giới thiệu môn học
 * **Tên môn học** : Máy học
 * **Mã môn học** : CS114.M11
 * **Số tín chỉ** : 4
 * **Giáo viên hướng Dẫn** :
 
-|Họ và Tên| Gmail|
-|:--------|----------|
-|Phạm Nguyễn Trường An |truonganpn@uit.edu.vn|
-|Lê Đình Duy | duyld@uit.edu.vn|
+| STT | Họ tên | Email |
+| :---: | --- | --- |
+| 1 | **PGS.TS. Lê Đình Duy** | *duyld@uit.edu.vn* |
+| 2 | **Ths. Phạm Nguyễn Trường An** | *truonganpn@uit.edu.vn* |
+
 ### Giới thiệu thành viên nhóm
 | STT | MSSV | Họ và Tên | Gmail | GITHUB |
 |:--- | :-------|:----------|:------------|:------------| 
