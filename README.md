@@ -16,6 +16,7 @@
 * **Tên môn học** : Máy học
 * **Mã môn học** : CS114.M11
 * **Số tín chỉ** : 4
+* **Mã nhóm** : CID
 * **Giáo viên hướng Dẫn** :
 
 | STT | Họ tên | Email |
