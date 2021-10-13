@@ -1,5 +1,5 @@
 import sys
-r, c = map(int, sys.stdin.readline().split())
+r, c = map(int, sys.stdin.readline()[:-1].split())
 
 arr = []
 max_len = [0] * c
@@ -8,7 +8,7 @@ for i in range(r):
     for i in range(c):
         if k[i] == '-0':
             k[i] = '0'
-        elif k[i][0] == '0' and k[i][-1] != '0':
+        elif k[i][0] == '0' and k[i][-1] != 0:
             index = 0
             while k[i][index] == '0':
                 index += 1
