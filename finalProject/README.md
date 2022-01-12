@@ -26,6 +26,7 @@
 [3]:https://www.facebook.com/danh250/
 [4]:https://www.facebook.com/phuvinh0107
 [5]:https://www.facebook.com/tuanminh.vo.73
+
 ## Bảng mục lục
 1.[Giới thiệu bài toán](#giới-thiệu-bài-toán:)
 
@@ -39,7 +40,7 @@
 
 6.[Hướng phát triển](#hướng-phát-triển:)
 
-7.[Tài liệu tham khả0](#Tài-liệu-tham-khảo:)
+7.[Tài liệu tham khảo](#Tài-liệu-tham-khảo:)
 
 ## 1.Giới thiệu bài toán:
 
