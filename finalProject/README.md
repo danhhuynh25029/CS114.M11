@@ -1,8 +1,13 @@
+<p align="center">
+  <img src="https://www.uit.edu.vn/sites/vi/files/banner_uit_0.png" title="avatar_UIT">
+</p>
+
 <h1 align="center">
-Đồ án cuối kì môn máy học - CS114.M11
-</h1>
-<h1 align="center">
-    Phát hiện một số bệnh trên lá cây cà phê
+    
+  **BÁO CÁO ĐỒ ÁN CUỐI KỲ**
+  
+  **PHÁT HIỆN MỘT SỐ BỆNH TRÊN LÁ CÂY CÀ PHÊ**
+
 </h1>
 
 * **Giáo viên hướng Dẫn** :
@@ -46,22 +51,35 @@
 
 * Ngữ cảnh ứng dụng : 
     
-    * Cà phê là một thức uống được sử dụng phổ biến hiện nay và lượng tiêu thụ cà phê trên thế giới rất cao.Vì vậy ngày càng nhiều vườn trồng cà phê ra đời nhằm phục vụ cho sản lượng tiêu thụ lớn.Cà phê cũng giống như các loại cây nông nghiệp khác đều có thể mắc chứng bệnh trên lá cây gây ảnh hưởng đến sức khỏe của cây và ảnh hưởng đến năng suất trồng trọt.Nhận thấy được vấn đề đó nên nhóm đã quyết định áp dụng những kiến thức của mình và những công nghệ có sẵn hiện nay để giải quyết bài toán phát hiện bệnh trên lá cây cà phê
-    * Vậy tại sao lại cần giải quyết bài toán này.Các vườn trồng cà phê ngày một gia tăng thì cũng với đó nếu những người nông nhân đã có kinh nghiệm trồng cà phê lâu năm thì có thể dễ dàng xác định xem bệnh trên lá cây đó là bệnh gì.Tuy nhiên nếu người mới bước vào nghề chưa biết gì về cà phê thì sẽ cần đến một ứng dụng có thể giúp người mới trồng phát hiện bệnh và có cách xử lý phù hợp.
+    * Hiện nay, cà phê là một trong những loại thức uống được sử dụng phổ biến lẫn trong và ngoài nước. Cà phê được sản xuất từ những hạt cà phê rang, lấy trên cây cà phê.
+    
+    <img src="images/caphe.jpg" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"/>
+
+    * Theo báo điện tử VTV, trên 90% tổng sản lượng cà phê của Việt Nam dành cho việc xuất khẩu, khoảng 10% còn lại là dành cho việc chế biến và tiêu thụ trong nước. Cà phê nằm trong nhóm hàng nông sản xuất khẩu chủ lực của Việt Nam, hiện đứng thứ 2 thế giới (chỉ sau Brazil). Tính chung cả năm 2021, xuất khẩu cà phê của Việt Nam đạt 1,52 triệu tấn.
+
+    <img src="images/bieudoxuatkhau.jpg" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"/>
+
+    * Sản lượng tuy lớn nhưng cà phê vẫn chưa đáp ứng được các tiêu chuẩn về chất lượng. Nhằm nâng cao chất lượng của hạt cà phê, việc phát hiện và xử lý những căn bệnh trên lá của cây rất quan trọng. Nhận thấy được vấn đề đó nên nhóm đã quyết định áp dụng những kiến thức của mình và những công nghệ có sẵn hiện nay để giải quyết bài toán phát hiện một số loại bệnh trên lá cây cà phê.
+
+    * Mô hình hướng tới người sử dụng là người trồng cây cà phê, xây dựng một ứng dụng có thể giúp người trồng có thể phát hiện chính xác hơn các loại bệnh đang gặp trên lá của cây và đưa ra được giải pháp phù hợp nhằm loại bỏ bệnh và tác nhân gây bệnh. 
+    
 * Input và Output:
     
     * Input:
         
-        * Một tấm ảnh chụp bằng camera điện thoại thông minh
-        * Điều kiện :
-            * Ban ngày
-            * Không bị chói nắng
-            * Chụp mặt trên của lá cây cà phê
+        * Một tấm ảnh chụp chụp hình lá của cây cà phê đang bị bệnh.
+        * Các điều kiện ràng buộc :
+            + Ảnh chụp tập trung vào lá đang bị bệnh
+            + Chụp mặt trên của lá
+            + Chụp được từ cuốn lá đến chóp lá
+            + Chụp trong điều kiện ánh sáng ban ngày
+            
     * Output:
 
-        * Bounding box bao quanh các vị trí bệnh trên lá cây
+        * Bounding box bao quanh lá cây bị bệnh
         * Tên loại bệnh
-
+    <br>
+    🠊 ***Trong ứng dụng thực tế hoàn chỉnh, dựa vào tên loại bệnh xác định được ứng dụng sẽ đưa ra các giải pháp phù hợp cho người trồng***
 ## 2.Bộ dữ liệu:
 * ### Quá trình thu thập:
     * Dữ liệu được nhóm thu thập thủ công bằng điện thoại.Thu thập thủ công tại vườn giúp bộ dữ liệu gần sát với thực tế khi người nông dân tiến hành chụp.Sau đó nhóm tiến hành gắn nhãn cho bộ dữ liệu.
