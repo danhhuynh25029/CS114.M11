@@ -249,16 +249,41 @@
         1 : Phấn trắng <br>
         2 : Nấm rỉ sắt <br>
         3 : Đốm rong <br>
-## 3.Mô hình sử dụng:
+## Chương 4.Mô hình sử dụng:
 * Yolov4:
     * Giới thiệu: Vinh
 * Yolov5:
     * Giới thiệu: Danh or Vinh or Minh
 * Faster-RCNN:
     * Giới thiệu: Danh
-## 4.Phương pháp đánh giá:
+## Chương 5.Phương pháp đánh giá:
 * Các mô hình được nhóm đánh giá dựa trên độ đo mean average precision(map) được sử dụng phổ biến trong các bài toán object detection.
-* Bổ sung thêm : Minh
+* IoU (Intersection over union): là chỉ số đánh giá đươc sử dụng để đo độ chính  xác của phát hiện đối tượng trên tập dữ liệu cụ thể. Chỉ số này thường được gặp trong  Object Detection Challenge. IoU thường được đánh giá hiệu năng của các bộ phát  hiện đối tượng như HOG + Linear SVM và mạng noron tích chập (R-CNN, Fast R CNN, YOLO, …). Để áp dụng được IoU để đánh giá cần:  
+    * Đường bao thực (groung-truth bounding box): đường bao mà chúng ta gán cho  vật thể bằng labelImg. 
+    * Đường bao dự đoán (predicted bounding box): đường bao chúng ta sử dụng file Weights sau khi đào tạo để nhận dạng.
+    <p align="center">
+        <img scr="images/iou.png">
+    </p>
+* **IoU (Intersection over union)** là tỉ lệ giữa đo lường mức độ giao nhau giữa hai đường bao (thường là đường bao dự đoán và đường bao thực) để nhằm xác định hai khung hình có bị đè chồng lên nhau không.Tỷ lệ này được tính dựa trên phần diện tích giao nhau gữa 2 đường bao với phần tổng diện tích giao nhau và không giao nhau giữa chúng.
+    <p align="center">
+      <img scr="images/ctiou.png">
+    </p>
+    
+    * Các tiêu chí được dùng để đánh giá:
+      * Đối tượng được nhận dạng đúng với tỉ lệ IoU > 0,5 (TP) 
+      * Đối tượng được nhận dạng sai với tỉ lệ IoU < 0,5 (FP) 
+      * Đối tượng không được nhận dạng (FN) 
+* **Precision và Recall**
+  * Precision là gì ???
+  * Recall là gì ???
+   <p align="center">
+      <img scr="images/pr.png">
+   </p>
+* **Average Precision (AP)** từ Precision và Recall đã được định nghĩa ở trên chúng ta cung có thể đánh giá  mô hình dựa trên việc thay đổi một ngưỡng và quan sát giá trị của Precision và Recall.  Khái niệm Area Under the Curve (AUC) cũng được định nghĩa tương tự. Với  Precicion – Recall Curve, AUC còn có tên khác là Average Precision (AP).Giả sử có 𝑁 ngưỡng để tính precision và recall, với mỗi ngưỡng cho một cặp giá trị precision, recall là Pn,Rn, n=1,2,…,N. Precision-Recall curve được vẽ bằng cách vẽ từng điểm có toạ độ (𝑃𝑛,Rn) trên trục toạ độ và nối chúng với nhau. AP được xác định bằng:
+<p align="center">𝐴𝑃=∑(𝑅𝑛−𝑅𝑛−1)𝑃𝑛</p>
+
+* Trong đó (Rn−Rn−1)Pn chính là diện tích hình chữ nhật có chiều rộng (Rn−Rn−1) và chiều cao Pn, đây cũng gần với cách tính tích phân dựa trên cách tính diện tích của từng hình chữ nhật nhỏ.
+* **Mean Average Precision(mAp)** là trung bình của AP được tính cho tất cả các lớp.
 ## 5.Đánh giá kết quả:
  Danh
 ## 6.Hướng phát triển:
