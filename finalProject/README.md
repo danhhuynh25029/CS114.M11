@@ -77,7 +77,7 @@
     
     * Input:
         
-        * Một tấm ảnh chụp chụp hình lá của cây cà phê đang bị bệnh.
+        * Một tấm ảnh chụp hình lá của cây cà phê đang bị bệnh.
 
         <p align="center">
         <img src="images/viduinput.JPG" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
@@ -110,9 +110,9 @@
 # Chương 2. CÁC NGHIÊN CỨU TRƯỚC
 * Bài toán của nhóm đặt ra là muốn hướng đến bài toán thuộc loại Object Detection (Phát hiện đối tượng), định vị đối tượng trong ảnh và xác định đối tượng thuộc loại nào. Trong lĩnh vực thị giác máy tính thì bài toàn phát hiện đối tượng đạt được nhiều kết quả khi áp dụng hướng tiếp cận Deep learning. Có thể kể đến một số hướng tiếp cận tiên tiến hiện nay bao gồm RCNN, Fast RCNN, Faster RCNN, Mask RCNN, RetinaNet, YOLO, v.v
 * Faster RCNN
-    * Phương pháp Faster RCNN là một trong các phương pháp phát hiện đối tƣợng sử dụng mạng Deep learning đạt độ chính xác cao trên các tập dữ liệu chuẩn như COCO . Faster RCNN đƣợc cải tiến dựa trên 2 phương pháp trướcc đó là RCNN và Fast RCNN.
+    * Phương pháp Faster RCNN là một trong các phương pháp phát hiện đối tƣợng sử dụng mạng Deep learning đạt độ chính xác cao trên các tập dữ liệu chuẩn như COCO . Faster RCNN được cải tiến dựa trên 2 phương pháp trướcc đó là RCNN và Fast RCNN.
 * Mask RCNN
-    * Phương pháp Mask RCNN là phương pháp thực hiện song song 2 bài toán là phân vùng đối tượng (Instance Segmentation) và phát hiện đối tượng. Mask RCNN là phương pháp đƣợc cải tiến từ Faster RCNN.
+    * Phương pháp Mask RCNN là phương pháp thực hiện song song 2 bài toán là phân vùng đối tượng (Instance Segmentation) và phát hiện đối tượng. Mask RCNN là phương pháp được cải tiến từ Faster RCNN.
 * Restinanet
     * RetinaNet là một phƣơng pháp tiếp cận one-stage tức là ngay trong bản thân cấu trúc mạng của phƣơng pháp đã bao gồm thao tác đưa ra vùng đề xuất
 * YOLO
@@ -125,33 +125,130 @@
     </p>
 # Chương 3. XÂY DỰNG BỘ DỮ LIỆU
 * ### Quá trình thu thập:
-    * Dữ liệu được nhóm thu thập thủ công bằng điện thoại.Thu thập thủ công tại vườn giúp bộ dữ liệu gần sát với thực tế khi người nông dân tiến hành chụp.Sau đó nhóm tiến hành gắn nhãn cho bộ dữ liệu.
+    * Dữ liệu được nhóm thu thập thủ công bằng camera của điện thoại.
+    * Điện thoại sử dụng: Iphone 7 Plus, 32GB.
+    * Mỗi tấm ảnh gốc có kích thước 3024 x 4032 (camera nằm ngang), 4032 x 3024 (camera nằm dọc)
+
+        <p align="center">
+        <img src="images/details_image.png" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
+        <br>
+        <a style="text-align: center">Hình 6. Độ phân giải và camera sử dụng.</a>
+        </p>
+
+    * File ảnh được lưu trữ trong cùng 1 folder trên máy tính dưới dạng tệp .JPG
+
+    * Thời gian thu thập dữ liệu:
+
+<center>
+
+| STT | Thời gian thu thập | Địa điểm thu thập |
+| :---: | --- | --- |
+| 1 | 20/12/2021 | Huyện Lạc Dương |
+| 2 | 25/12/2021 | Xã Trạm Hành |
+| 3 | 1/2/2022 | Xã Trạm Hành |
+</center>
+
+
 * ### Tiêu chí khi thu thập dữ liệu :
-    * Chụp toàn bộ chiếc lá
-    * Đảm bộ độ sáng phù hợp
-    * khoảng cách chụp vừa phải
-    * Gốc camera từ trên xuống
-* ### Nơi thu thập dữ liệu :
-    * Vườn cà phê của nhà người thân xa khoảng 40km
-* ### Khó khắn khi thu thập dữ liệu : 
-    * Đường đi xa xôi.Hiện nay dịch bệnh vẫn còn ảnh hưởng nên có rất nhiều khó khăn trong việc đi lại và có thể gây ảnh hưởng đến sức khỏe
-* ### Tổng quan về bộ dữ liệu :
-    * Bộ dữ liệu gồm có 3825 tấm ảnh gồm bốn lớp là bốn loại bệnh phổ biến xuất hiện trên lá cây cà phê
-    * Bốn loại bệnh : 
-        * Sâu vẽ bùa
-        * Phấn trắng
-        * Nấm rỉ sắt
-        * Đốm rong 
-* ### Thống số bộ dữ liệu : 
-    * Tập dữ liệu sẽ được chia thành hai tập train và test với tỉ lệ là 82% cho tập train và 18% cho tập test
-    <p algin="center">
-        <img src="images/data.png"/>
+
+    * Chụp rõ nét tập trung vào lá cây bị bệnh.
+    * Chụp mặt trên của lá cây.
+    * Chụp toàn bộ chiếc lá từ phần cuốn lá đến chóp lá.
+    * Đảm bảo ánh sáng ban ngày.
+    
+* ### Giảm độ phân giải của ảnh :
+
+    * Do mỗi ảnh có kích thước khá lớn nên dung lượng lưu trữ khá nặng. Đối với folder chứa toàn bộ dữ liệu gốc nặng khoảng 11.2 Gb gây khó khăn trong việc lưu trữ nến nhóm đã giảm độ phân giải xuống ~ 3.33 lần. Độ phân giải sau khi giảm 907 x 1209 và 1209 x 907. Dung lượng lưu trữ sau khi xử lý nặng khoảng 1.6 Gb.
+
+
+* ### Gán nhãn dữ liệu :
+
+    * Sử dụng công cụ labelImg để tiến hành gán nhãn toàn bộ dữ liệu
+        <p align="center">
+        <img src="images/label.png" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
+        <br>
+        <a style="text-align: center">Hình 7. Công cụ labelImg.</a>
+        </p>
+
+    * Sử dụng thao tác kéo thả chuột để tạo bouding box cho đối tượng. Label được lưu thành file text có cùng tên với ảnh dưới dạng YOLO format.
+            <p align="center">
+            <img src="images/yoloformat.jpg" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
+            <br>
+            <a style="text-align: center">Hình 8. Ảnh, label và label format của YOLO.</a>
+            </p>
+
+    * Số loại label là 4. Được kí hiệu bằng 1 trong các chữ số 0, 1, 2, 3
+
+    ***Label 0: Bệnh sâu vẽ bùa***
+    
+    * Những lá bị sâu vẽ bùa gây hại sẽ bị co lại, biến dạng. Sâu non chui qua lớp biểu bì của lá để ăn phần nhu mô của lá tạo thành đường hầm ngoằn ngoèo màu trắng, trắng đục dưới lớp biểu bì.
+        
+    <p align="center">
+    <img src="images/vidusauvebua.jpg" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
+    <br>
+    <a style="text-align: center">Hình 9. Một số ví dụ về bệnh sâu vẽ bùa trên lá cà phê.</a>
     </p>
-    0 : Sâu vẽ bùa <br>
-    1 : Phấn trắng <br>
-    2 : Nấm rỉ sắt <br>
-    3 : Đốm rong <br>
-**Nhận xét :** Số lương dữ liệu của bệnh đốm rong khá ít so với các bệnh khác.Một phần là do vườn của người thân ít xuất hiện bệnh này.Mặc khác các bệnh thường xảy ra theo mùa.
+
+    ***Label 1: Bệnh phấn trắng***
+    
+    * Bệnh phấn trắng do một số loại nấm có họ hàng gần gây ra. Triệu chứng chung là chúng tạo ra lớp bột có màu trắng xám trên bề mặt của lá.
+        
+    <p align="center">
+    <img src="images/viduphantrang.jpg" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
+    <br>
+    <a style="text-align: center">Hình 10. Một số ví dụ về bệnh phấn trắng trên lá cà phê.</a>
+    </p>
+
+    ***Label 2: Bệnh nấm rỉ sắt***
+    
+    * Trên lá xuất hiện các vết đốm hình tròn màu nâu cam hơi đỏ (giống rỉ sắt), xung quanh có vầng màu vàng úa.
+        
+    <p align="center">
+    <img src="images/vidurisat.jpg" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
+    <br>
+    <a style="text-align: center">Hình 11. Một số ví dụ về bệnh nấm rỉ sắt trên lá cà phê.</a>
+    </p>
+
+    ***Label 3: Bệnh đốm rong***
+    
+    *  Đốm bệnh có hình tròn lúc đầu nhỏ khoảng 3 - 5 mm, hơi nhô lên trên mặt lá do rong phát triển thành ung mịn, màu hơi vàng.
+        
+    <p align="center">
+    <img src="images/vidudomrong.jpg" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
+    <br>
+    <a style="text-align: center">Hình 12. Một số ví dụ về bệnh đốm rong trên lá cà phê.</a>
+    </p>
+
+* ### Thống số bộ dữ liệu :
+    * Tổng số lượng ảnh trong bộ dữ liệu là 3825 ảnh
+    * Tổng số object là 4092
+
+    <p align="center">
+    <img src="images/Figure_1.png" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
+    <br>
+    <a style="text-align: center">Hình 13. Số lượng object thuộc từng loại label.</a>
+    </p>
+
+    
+    **Nhận xét :** Số lương label thuộc bệnh đốm rong khá ít so với các bệnh khác, nguyên nhân là bệnh này xuất hiện khá ít tại các vườn cà phê thu thập dữ liệu.
+
+    * Tập dữ liệu được chia thành hai tập train và test với tỉ lệ là 80% cho tập train và 20% cho tập test
+    <p align="center">
+    <img src="images/train.png" style="display: block;margin-left: auto;margin-right: auto;"/>
+    <br>
+    <a style="text-align: center">Hình 14. Số lượng object thuộc từng loại label trong tập train.</a>
+    </p>
+    <p align="center">
+    <img src="images/test.png" style="display: block;margin-left: auto;margin-right: auto;"/>
+    <br>
+    <a style="text-align: center">Hình 15. Số lượng object thuộc từng loại label trong tập test.</a>
+    </p>
+    
+    Trong đó: <br>
+        0 : Sâu vẽ bùa <br>
+        1 : Phấn trắng <br>
+        2 : Nấm rỉ sắt <br>
+        3 : Đốm rong <br>
 ## 3.Mô hình sử dụng:
 * Yolov4:
     * Giới thiệu: Vinh
