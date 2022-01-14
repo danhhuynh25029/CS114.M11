@@ -33,19 +33,15 @@
 [5]:https://www.facebook.com/tuanminh.vo.73
 
 ## Bảng mục lục
-1.[Giới thiệu bài toán](#giới-thiệu-bài-toán:)
+Chương 1.[Tổng quan](#giới-thiệu-bài-toán:)
 
-2.[Bộ dữ liệu](#xây-dựng-bộ-dữ-liệu:)
+Chương 2.[Các nghiên cứu trước](#xây-dựng-bộ-dữ-liệu:)
 
-3.[Mô hình sử dụng](#mô-hình-sử-dụng:)
+Chương 3.[Xây dựng bộ dữ liệu](#mô-hình-sử-dụng:)
 
-4.[Phương pháp đánh giá](#phương-pháp-đánh-giá:)
+Chương 4.[Training và đánh giá model](#phương-pháp-đánh-giá:)
 
-5.[Đánh giá kết quả](#đánh-giá-kết-quả:)
-
-6.[Hướng phát triển](#hướng-phát-triển:)
-
-7.[Tài liệu tham khảo](#Tài-liệu-tham-khảo:)
+Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 
 # Chương 1. TỔNG QUAN
 
@@ -87,7 +83,6 @@
 
         * Các điều kiện ràng buộc :
             + Ảnh chụp tập trung vào lá đang bị bệnh
-            + Chụp mặt trên của lá
             + Chụp được từ cuốn lá đến chóp lá
             + Chụp trong điều kiện ánh sáng ban ngày
             
@@ -152,7 +147,6 @@
 * ### Tiêu chí khi thu thập dữ liệu :
 
     * Chụp rõ nét tập trung vào lá cây bị bệnh.
-    * Chụp mặt trên của lá cây.
     * Chụp toàn bộ chiếc lá từ phần cuốn lá đến chóp lá.
     * Đảm bảo ánh sáng ban ngày.
     
@@ -177,6 +171,8 @@
             <a style="text-align: center">Hình 8. Ảnh, label và label format của YOLO.</a>
             </p>
 
+    * Trong một ảnh có thể có nhiều lá những chỉ label những lá bị bệnh và thấy rõ từ cuốn lá đến chóp lá.
+    
     * Số loại label là 4. Được kí hiệu bằng 1 trong các chữ số 0, 1, 2, 3
 
     ***Label 0: Bệnh sâu vẽ bùa***
@@ -230,7 +226,7 @@
     </p>
 
     
-    **Nhận xét :** Số lương label thuộc bệnh đốm rong khá ít so với các bệnh khác, nguyên nhân là bệnh này xuất hiện khá ít tại các vườn cà phê thu thập dữ liệu.
+    **Nhận xét :** Số lượng label thuộc bệnh phấn trắng khá ít so với các bệnh khác, nguyên nhân là bệnh này xuất hiện khá ít tại các vườn cà phê thu thập dữ liệu.
 
     * Tập dữ liệu được chia thành hai tập train và test với tỉ lệ là 80% cho tập train và 20% cho tập test
     <p align="center">
@@ -243,53 +239,120 @@
     <br>
     <a style="text-align: center">Hình 15. Số lượng object thuộc từng loại label trong tập test.</a>
     </p>
-    
+
     Trong đó: <br>
         0 : Sâu vẽ bùa <br>
         1 : Phấn trắng <br>
         2 : Nấm rỉ sắt <br>
         3 : Đốm rong <br>
-## Chương 4.Mô hình sử dụng:
-* Yolov4:
-    * Giới thiệu: Vinh
-* Yolov5:
-    * Giới thiệu: Danh or Vinh or Minh
-* Faster-RCNN:
-    * Giới thiệu: Danh
-## Chương 5.Phương pháp đánh giá:
-* Các mô hình được nhóm đánh giá dựa trên độ đo mean average precision(map) được sử dụng phổ biến trong các bài toán object detection.
-* IoU (Intersection over union): là chỉ số đánh giá đươc sử dụng để đo độ chính  xác của phát hiện đối tượng trên tập dữ liệu cụ thể. Chỉ số này thường được gặp trong  Object Detection Challenge. IoU thường được đánh giá hiệu năng của các bộ phát  hiện đối tượng như HOG + Linear SVM và mạng noron tích chập (R-CNN, Fast R CNN, YOLO, …). Để áp dụng được IoU để đánh giá cần:  
-    * Đường bao thực (groung-truth bounding box): đường bao mà chúng ta gán cho  vật thể bằng labelImg. 
-    * Đường bao dự đoán (predicted bounding box): đường bao chúng ta sử dụng file Weights sau khi đào tạo để nhận dạng.
-    <p align="center">
-        <img scr="images/iou.png">
-    </p>
-* **IoU (Intersection over union)** là tỉ lệ giữa đo lường mức độ giao nhau giữa hai đường bao (thường là đường bao dự đoán và đường bao thực) để nhằm xác định hai khung hình có bị đè chồng lên nhau không.Tỷ lệ này được tính dựa trên phần diện tích giao nhau gữa 2 đường bao với phần tổng diện tích giao nhau và không giao nhau giữa chúng.
-    <p align="center">
-      <img scr="images/ctiou.png">
-    </p>
-    
-    * Các tiêu chí được dùng để đánh giá:
-      * Đối tượng được nhận dạng đúng với tỉ lệ IoU > 0,5 (TP) 
-      * Đối tượng được nhận dạng sai với tỉ lệ IoU < 0,5 (FP) 
-      * Đối tượng không được nhận dạng (FN) 
-* **Precision và Recall**
-  * Precision là gì ???
-  * Recall là gì ???
-   <p align="center">
-      <img scr="images/pr.png">
-   </p>
-* **Average Precision (AP)** từ Precision và Recall đã được định nghĩa ở trên chúng ta cung có thể đánh giá  mô hình dựa trên việc thay đổi một ngưỡng và quan sát giá trị của Precision và Recall.  Khái niệm Area Under the Curve (AUC) cũng được định nghĩa tương tự. Với  Precicion – Recall Curve, AUC còn có tên khác là Average Precision (AP).Giả sử có 𝑁 ngưỡng để tính precision và recall, với mỗi ngưỡng cho một cặp giá trị precision, recall là Pn,Rn, n=1,2,…,N. Precision-Recall curve được vẽ bằng cách vẽ từng điểm có toạ độ (𝑃𝑛,Rn) trên trục toạ độ và nối chúng với nhau. AP được xác định bằng:
-<p align="center">𝐴𝑃=∑(𝑅𝑛−𝑅𝑛−1)𝑃𝑛</p>
+# Chương 4. TRAINING VÀ ĐÁNH GIÁ MODEL
+## Cấu hình train và test:
+<p align="center">
+<img src="images/cauhinhtrain.jpg" style="display: block;margin-left: auto;margin-right: auto;width: 50%"/>
+<br>
+<a style="text-align: center">Hình 16. Cấu hình dùng để train và test.</a>
+</p>
 
-* Trong đó (Rn−Rn−1)Pn chính là diện tích hình chữ nhật có chiều rộng (Rn−Rn−1) và chiều cao Pn, đây cũng gần với cách tính tích phân dựa trên cách tính diện tích của từng hình chữ nhật nhỏ.
-* **Mean Average Precision(mAp)** là trung bình của AP được tính cho tất cả các lớp.
-## 5.Đánh giá kết quả:
- Danh
-## 6.Hướng phát triển:
-* Mô hình :
-    * Thu thập thêm nhiều dữ liệu không chỉ các bệnh trên lá cây mà còn trên các bộ phận khác của cây cà phê.
-* Ứng dụng : 
-    * Tạo ra một ứng điện thoại có thể phát hiện các loại bệnh trên cây cà phê giúp người nông dân có thể dễ dàng sử dụng và có cách ngăn chặn kịp thời.
-## 7.Tài liệu tham khảo:
+## YOLOv4:
+<p align="center">
+<img src="images/yolov4_archi.png" style="display: block;margin-left: auto;margin-right: auto; width: 75%"/>
+<br>
+<a style="text-align: center">Hình 16. Cấu trúc mô hình YOLOv4.</a>
+</p>
+
+### Sơ lược về YOLOv4
+
+* YOLOv4 là một loạt các cải tiến về tốc độ so với YOLOv3 và được cài đặt từ một bản fork của Darknet. Kiến trúc của YOLOv4 đã đưa bài toán object detection dễ tiếp cận hơn với những người không có tài nguyên tính toán mạnh.
+
+<p align="center">
+<img src="images/yolov4_compare.jpeg" style="display: block;margin-left: auto;margin-right: auto; width: 75%"/>
+<br>
+<a style="text-align: center">Hình 17. So sánh YOLOv4 với các mô hình khác.</a>
+</p>
+
+* Kết quả so sánh YOLOv4 với các mô hình khác ở thời điểm hiện tại. YOLOv4 chạy nhanh gấp đôi EfficientDet và tăng AP và FPS so với YOLOv3 lần lượt là 10% và 12%. Hình ảnh từ paper YOLOv4. Nhìn vào biểu đồ, ta dễ dàng thấy được sự hiệu quả của YOLOv4 so với các mạng tốt nhất hiện nay. Cụ thể hơn YOLOv4 đạt 43.5% AP trên tập dữ liệu MS COCO ở tốc độ 65 FPS, trên GPU Tesla V100. 
+
+### Thiết lập training
+
+* Để train model nhóm sử dụng tài nguyên của Google Colab với thiết lập runtime type là GPU
+
+<p align="center">
+<img src="images/runtime.png" style="display: block;margin-left: auto;margin-right: auto; width: 30%; height:30%"/>
+<br>
+<a style="text-align: center">Hình 18. Bật GPU trên Google Colab.</a>
+</p>
+
+* Nhóm sử dụng darknet repository của tác giả để huấn luyện cho model và thiết lập các thông số trong file Makefile như sau
+<p align="center">
+<img src="images/configmakefile.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
+<br>
+<a style="text-align: center">Hình 19. Thiết lập các thông số Makefile để sử dụng GPU.</a>
+</p>
+
+* Chỉnh sửa các thông số của model YOLOv4 trong file yolov4-custom.cfg theo hướng dẫn của tác giả:
+    * batch: 32
+    * subdivisions = 32
+    * max_batches = 8000 (Bằng số class * 2000)
+    * steps = 6400, 7200 (Bằng 0.8 * max_batches, 0.9 * max_batches)
+    * width = 416, height = 416 (Kích thước của ảnh)
+    * classes = 4 (Số class)
+    * filters = 27 (Tính theo công thức filters = (classes + 5) * 3) 
+
+* Tạo file train.txt chứa đường dẫn tới các ảnh dùng để train (3138 ảnh)
+<p align="center">
+<img src="images/path_train.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
+<br>
+<a style="text-align: center">Hình 20. File train.txt</a>
+</p>
+
+
+* Tạo file valid.txt chứa đường dẫn tới các ảnh dùng để đánh giá trong quá trình train (687 ảnh)
+<p align="center">
+<img src="images/path_valid.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
+<br>
+<a style="text-align: center">Hình 21. File valid.txt</a>
+</p>
+
+* Tạo file obj.names chứa tên của các class
+<p align="center">
+<img src="images/obj.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
+<br>
+<a style="text-align: center">Hình 22. File obj.names</a>
+</p>
+
+* Tạo file obj.data có nội dung như sau
+<p align="center">
+<img src="images/obj_data.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
+<br>
+<a style="text-align: center">Hình 23. File obj.data</a>
+</p>
+
+    Trong đó:
+    classes: là số lượng class
+    train: đường dẫn tới file train.txt
+    valid: đường dẫn tới file valid.txt
+    names: đường dẫn tới file obj.names
+    backup: đường dẫn tới folder backup chứa các trọng số được lưu lại trong quá trình train
+
+### Train model
+* Tải file trọng số yolov4.conv.137.weights và tiến hành train trên file trọng số này
+* Trong quá trình train model các file trọng số được lưu lại tronng đó có 2 file quan trọng là:
+    * yolov4-custom_last.weights (Trọng số của interation mới nhất)
+    * yolov4-custom_best.weights (Trọng số tốt nhất)
+* Quá trình training khá lâu vượt qua thời gian cho phép của Google Colab nên ở những lần train tiếp theo nhóm tiến hành train tiếp trên file trọng số mới nhất
+* Thời gian train model: khoảng 18 tiếng
+* Thời gian test trên 686 ảnh: 53 giây 
+
+### Model Summary
+
+
+### YOLOv5:
+
+
+### Faster-RCNN:
+
+
+## Chướng 5. Ứng dụng và hướng phát triển:
+
+## Tài liệu tham khảo:
 Danh & Vinh
