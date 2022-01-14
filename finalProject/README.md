@@ -33,7 +33,8 @@
 [5]:https://www.facebook.com/tuanminh.vo.73
 
 ## Bảng mục lục
-Chương 1.[Tổng quan](#giới-thiệu-bài-toán:)
+
+Chương 1.[Tổng quan](#tổng-quan)
 
 Chương 2.[Các nghiên cứu trước](#xây-dựng-bộ-dữ-liệu:)
 
@@ -399,10 +400,32 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 * Thời gian test trên 686 ảnh: 32 giây
 
 ## Faster-RCNN:
+### Sơ lược về Faster RCNN
+* Faster-RCNN  là một phương pháp phát hiện đối tượng sử dụng deep learning.Faster RCNN là một sự cải tiến dựa trên hai phương pháp  trước đó là RCNN và Fast RCNN. Faster RCNN là sự kết hợp giữa Fast-RCNN với  một mạng mới có tên gọi là region proposal network(rpn).
+* Region Proposal Netwok là một mạng Convolutional Neural Network(CNN) có chức năng để tìm ra các vùng có khả năng chứa đối tượng thường dược gọi là region proposal
+* Fast-RCNN là một mạng CNN dùng để trích xuất các features từ các region proposal và trả ra các bounding box cùng với label cho từng cái bounding box đó.
+<p align="center">
+  <img src="images/faster.png" />
+</p>
+<p align="center">Hình 28. Cấu trúc Faster RCNN</p>
 
+### Thiếp lập training
+* Nhóm sử dụn detectron2 một thư viện của Facebook AI Research để tiến hành huấn luyện cho Faster RCNN.Nhóm đã sử dụng file pretrained weights X-101-32x8d.pkl để tiếp tục train cho model của mình.
+<p align="center">
+  <img src="images/faster_yaml.png" /> 
+</p>
+<p align="center">Hình 29. File pretrained được sử dụng </p>
 
+* Thiết lập thông sô:
+  * BATCH_SIZE_PER_IMAGE = 64
+  * CLASSES : 5  
+  * MAX_ITER : 7000
+  * STEP_SIZE : 6000,10000
+* Nhóm chỉ chỉnh sửa một vài thông số để tiến hành việc training.
+### Train model
+* Thời gian train của Faster RCNN là hơn 3 tiếng khá nhanh só với hai model yolov4,yolov5 mà nhóm đã train trước đó.
+* Thời gian test trên 686 tấm ảnh : không nhớ
 ## Đánh giá model
-
 * Thiết lập các ngưỡng để đánh giá
     * confidence thresh: 0.25
     * iou thresh: 0.5
@@ -436,10 +459,18 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 
 * Faster RCNN
 
+| Class | mAP@0.5 |
+| :---: | --- | 
+| 0 | ??? | 
+| 1 | ??? |
+| 2 | ??? |
+| 3 | ??? |
+
 | Model | Precision | Recall | mAP@0.5 |
 | :---: | --- | --- | --- |
 | YOLOv4 | 0.900 | 0.98 | 0.989 |
 | YOLOv5s | 0.988 | 0.99 | 0.995 |
+| Faster-RCNN | ??? | ??? | ??? |
 ## Chướng 5. Ứng dụng và hướng phát triển:
 
 ## Tài liệu tham khảo:
