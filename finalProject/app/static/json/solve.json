@@ -1,0 +1,18 @@
+{
+	"0" :{
+		"name" : "Sâu vẽ bùa",
+		"treatment" : ["Trigard 100SL","Vertimect 1.8EC",""]
+	},
+	"1" : {
+		"name" : "Phấn trắng",
+		"treatment" : ["Anvil", "Aviso 350SC, Ridozeb 72WP"]
+	},
+	"2":{
+		"name" : "Nấm rỉ sắt",
+		"treatment" : ["MANCOZEB", "NATIVO 750WG"]
+	},
+	"3":{
+		"name" : "Đốm rong",
+		"treatment" : ["Coc 85", "Kocide"]
+	}
+}
