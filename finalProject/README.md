@@ -418,13 +418,13 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 
 * Thiết lập thông sô:
   * BATCH_SIZE_PER_IMAGE = 64
-  * CLASSES : 5  
-  * MAX_ITER : 7000
+  * CLASSES : 5 (Tổng số class + 1)
+  * MAX_ITER : 15000
   * STEP_SIZE : 6000,10000
 * Nhóm chỉ chỉnh sửa một vài thông số để tiến hành việc training.
 ### Train model
-* Thời gian train của Faster RCNN là hơn 3 tiếng khá nhanh só với hai model yolov4,yolov5 mà nhóm đã train trước đó.
-* Thời gian test trên 686 tấm ảnh : không nhớ
+* Thời gian train của Faster RCNN: 12 tiếng
+* Thời gian test trên 686 ảnh: 175 giây
 ## Đánh giá model
 * Thiết lập các ngưỡng để đánh giá
     * confidence thresh: 0.25
@@ -433,7 +433,7 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 <p align="center">
 <img src="images/res_yolov4.jpg" style="display: block;margin-left: auto;margin-right: auto; width: 50%;"/>
 <br>
-<a style="text-align: center">Hình 28. Kết quả đánh giá model YOLOv4</a>
+<a style="text-align: center">Hình 30. Kết quả đánh giá model YOLOv4</a>
 </p>
 
 | Class | mAP@0.5 |
@@ -447,7 +447,7 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 <p align="center">
 <img src="images/res_yolov5.png" style="display: block;margin-left: auto;margin-right: auto; width: 70%;"/>
 <br>
-<a style="text-align: center">Hình 29. Kết quả đánh giá model YOLOv5s</a>
+<a style="text-align: center">Hình 31. Kết quả đánh giá model YOLOv5s</a>
 </p>
 
 | Class | mAP@0.5 |
@@ -458,19 +458,24 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 | 3 | 0.994 |
 
 * Faster RCNN
+<p align="center">
+<img src="images/fasterrcnn_res.jpg" style="display: block;margin-left: auto;margin-right: auto; width: 70%;"/>
+<br>
+<a style="text-align: center">Hình 32. Kết quả đánh giá model Faster RCNN (AP ở đây là mAP@0.5)</a>
+</p>
 
 | Class | mAP@0.5 |
 | :---: | --- | 
-| 0 | ??? | 
-| 1 | ??? |
-| 2 | ??? |
-| 3 | ??? |
+| 0 | 0.987 | 
+| 1 | 0.997 |
+| 2 | 0.999 |
+| 3 | 0.998 |
 
 | Model | Precision | Recall | mAP@0.5 |
 | :---: | --- | --- | --- |
 | YOLOv4 | 0.900 | 0.98 | 0.989 |
-| YOLOv5s | 0.988 | 0.99 | 0.995 |
-| Faster-RCNN | ??? | ??? | ??? |
+| YOLOv5s | 0.988 | 0.99 | 0.993 |
+| Faster-RCNN | 0.996 | 0.958 | 0.996 |
 ## Chướng 5. Ứng dụng và hướng phát triển:
 
 ## Tài liệu tham khảo:
