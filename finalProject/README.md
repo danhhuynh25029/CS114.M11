@@ -110,7 +110,7 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 * Mask RCNN
     * Phương pháp Mask RCNN là phương pháp thực hiện song song 2 bài toán là phân vùng đối tượng (Instance Segmentation) và phát hiện đối tượng. Mask RCNN là phương pháp được cải tiến từ Faster RCNN.
 * Restinanet
-    * RetinaNet là một phƣơng pháp tiếp cận one-stage tức là ngay trong bản thân cấu trúc mạng của phƣơng pháp đã bao gồm thao tác đưa ra vùng đề xuất
+    * RetinaNet là một phương pháp tiếp cận one-stage tức là ngay trong bản thân cấu trúc mạng của phương pháp đã bao gồm thao tác đưa ra vùng đề xuất
 * YOLO
     * YOLO được xem là phương pháp đầu tiên xử lý dữ liệu theo thời gian thực và vẫn đạt được độ chính xác cao.
 * Một số kết quả nghiên cứu được đánh giá trên tập COCO. COCO (Common Objects in Context) là một tập datasets phục vụ cho các bài toán Object Detection, Segmentation, Image Captioning. Tập dữ liệu tổng cộng có khoảng 1.5 triệu object thuộc về 80 class khác nhau.
@@ -160,7 +160,7 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 
     * Sử dụng công cụ labelImg để tiến hành gán nhãn toàn bộ dữ liệu
         <p align="center">
-        <img src="images/label.png" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
+        <img src="images/label.png" style="display: block;margin-left: auto;margin-right: auto;width: 75%;"/>
         <br>
         <a style="text-align: center">Hình 7. Công cụ labelImg.</a>
         </p>
@@ -217,8 +217,8 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
     </p>
 
 * ### Thống số bộ dữ liệu :
-    * Tổng số lượng ảnh trong bộ dữ liệu là 3825 ảnh
-    * Tổng số object là 4092
+    * Tổng số lượng ảnh trong bộ dữ liệu là: 3825 ảnh
+    * Tổng số object là: 4092
 
     <p align="center">
     <img src="images/Figure_1.png" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
@@ -226,19 +226,27 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
     <a style="text-align: center">Hình 13. Số lượng object thuộc từng loại label.</a>
     </p>
 
+    * Số ảnh có 1 object là: 3579
+    * Số ảnh có nhiều hơn 1 object là: 246
+
+    <p align="center">
+    <img src="images/Figure_count.png" style="display: block;margin-left: auto;margin-right: auto;width: 50%; height:50%;"/>
+    <br>
+    <a style="text-align: center">Hình 14. Số lượng ảnh có 1 object và nhiều object.</a>
+    </p>
     
-    **Nhận xét :** Số lượng label thuộc bệnh phấn trắng khá ít so với các bệnh khác, nguyên nhân là bệnh này xuất hiện khá ít tại các vườn cà phê thu thập dữ liệu.
+    **Nhận xét :** Số lượng object thuộc bệnh phấn trắng khá ít so với các bệnh khác, nguyên nhân là bệnh này xuất hiện khá ít tại các vườn cà phê thu thập dữ liệu.
 
     * Tập dữ liệu được chia thành hai tập train và test với tỉ lệ là 80% cho tập train và 20% cho tập test
     <p align="center">
     <img src="images/train.png" style="display: block;margin-left: auto;margin-right: auto;"/>
     <br>
-    <a style="text-align: center">Hình 14. Số lượng object thuộc từng loại label trong tập train.</a>
+    <a style="text-align: center">Hình 15. Số lượng object thuộc từng loại label trong tập train.</a>
     </p>
     <p align="center">
     <img src="images/test.png" style="display: block;margin-left: auto;margin-right: auto;"/>
     <br>
-    <a style="text-align: center">Hình 15. Số lượng object thuộc từng loại label trong tập test.</a>
+    <a style="text-align: center">Hình 16. Số lượng object thuộc từng loại label trong tập test.</a>
     </p>
 
     Trong đó: <br>
@@ -248,46 +256,49 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
         3 : Đốm rong <br>
 # Chương 4. TRAINING VÀ ĐÁNH GIÁ MODEL
 ## Cấu hình train và test:
+Để train model nhóm sử dụng tài nguyên của Google Colab với thiết lập runtime type là GPU
+
+<p align="center">
+<img src="images/runtime.png" style="display: block;margin-left: auto;margin-right: auto; width: 30%; height:30%"/>
+<br>
+<a style="text-align: center">Hình 17. Bật GPU trên Google Colab.</a>
+</p>
+
 <p align="center">
 <img src="images/cauhinhtrain.jpg" style="display: block;margin-left: auto;margin-right: auto;width: 50%"/>
 <br>
-<a style="text-align: center">Hình 16. Cấu hình dùng để train và test.</a>
+<a style="text-align: center">Hình 18. Cấu hình dùng để train và test.</a>
 </p>
 
 ## YOLOv4:
 <p align="center">
 <img src="images/yolov4_archi.png" style="display: block;margin-left: auto;margin-right: auto; width: 75%"/>
 <br>
-<a style="text-align: center">Hình 16. Cấu trúc mô hình YOLOv4.</a>
+<a style="text-align: center">Hình 19. Cấu trúc mô hình YOLOv4.</a>
 </p>
 
 ### Sơ lược về YOLOv4
+
+* YOLOv4 được giới thiệu bởi Alexey Bochoknovskiy, Chien-Yao Wang, and Hong-Yuan Mark Liao trong bài báo [YOLOv4: Optimal Speed and Accuracy of Object Detection](https://arxiv.org/abs/2004.10934v1) xuất bản ngày 23/4/2020.
 
 * YOLOv4 là một loạt các cải tiến về tốc độ so với YOLOv3 và được cài đặt từ một bản fork của Darknet. Kiến trúc của YOLOv4 đã đưa bài toán object detection dễ tiếp cận hơn với những người không có tài nguyên tính toán mạnh.
 
 <p align="center">
 <img src="images/yolov4_compare.jpeg" style="display: block;margin-left: auto;margin-right: auto; width: 75%"/>
 <br>
-<a style="text-align: center">Hình 17. So sánh YOLOv4 với các mô hình khác.</a>
+<a style="text-align: center">Hình 20. So sánh YOLOv4 với các mô hình khác.</a>
 </p>
 
 * Kết quả so sánh YOLOv4 với các mô hình khác ở thời điểm hiện tại. YOLOv4 chạy nhanh gấp đôi EfficientDet và tăng AP và FPS so với YOLOv3 lần lượt là 10% và 12%. Hình ảnh từ paper YOLOv4. Nhìn vào biểu đồ, ta dễ dàng thấy được sự hiệu quả của YOLOv4 so với các mạng tốt nhất hiện nay. Cụ thể hơn YOLOv4 đạt 43.5% AP trên tập dữ liệu MS COCO ở tốc độ 65 FPS, trên GPU Tesla V100. 
 
 ### Thiết lập training
 
-* Để train model nhóm sử dụng tài nguyên của Google Colab với thiết lập runtime type là GPU
-
-<p align="center">
-<img src="images/runtime.png" style="display: block;margin-left: auto;margin-right: auto; width: 30%; height:30%"/>
-<br>
-<a style="text-align: center">Hình 18. Bật GPU trên Google Colab.</a>
-</p>
 
 * Nhóm sử dụng darknet repository của tác giả để huấn luyện cho model và thiết lập các thông số trong file Makefile như sau
 <p align="center">
 <img src="images/configmakefile.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 19. Thiết lập các thông số Makefile để sử dụng GPU.</a>
+<a style="text-align: center">Hình 21. Thiết lập các thông số Makefile để sử dụng GPU.</a>
 </p>
 
 * Chỉnh sửa các thông số của model YOLOv4 trong file yolov4-custom.cfg theo hướng dẫn của tác giả:
@@ -303,7 +314,7 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 <p align="center">
 <img src="images/path_train.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 20. File train.txt</a>
+<a style="text-align: center">Hình 22. File train.txt</a>
 </p>
 
 
@@ -311,21 +322,21 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 <p align="center">
 <img src="images/path_valid.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 21. File valid.txt</a>
+<a style="text-align: center">Hình 23. File valid.txt</a>
 </p>
 
 * Tạo file obj.names chứa tên của các class
 <p align="center">
 <img src="images/obj.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 22. File obj.names</a>
+<a style="text-align: center">Hình 24. File obj.names</a>
 </p>
 
 * Tạo file obj.data có nội dung như sau
 <p align="center">
 <img src="images/obj_data.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 23. File obj.data</a>
+<a style="text-align: center">Hình 25. File obj.data</a>
 </p>
 
     Trong đó:
@@ -342,23 +353,23 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
     * yolov4-custom_best.weights (Trọng số tốt nhất)
 * Quá trình training khá lâu vượt qua thời gian cho phép của Google Colab nên ở những lần train tiếp theo nhóm tiến hành train tiếp trên file trọng số mới nhất
 * Thời gian train model: khoảng 28 tiếng
-* Thời gian test trên 686 ảnh: 53 giây 
+* Thời gian test trên 687 ảnh: 53 giây 
 
 ## YOLOv5:
 
 ### Sơ lược về YOLOv5
-* Không lâu sau khi YOLOv4 được phát hành chính thức thì 1 phiên bản khác của YOLO xuất hiện là YOLOv5 sử dụng frame work Pytorch. Với những số liệu của tác giả cung cấp thì mô hình này khá triển vọng. Tuy nhiên YOLOv4 hiện vẫn chưa có paper chính thức.
+* Không lâu sau khi YOLOv4 được phát hành chính thức thì 1 phiên bản khác của YOLO xuất hiện là YOLOv5 sử dụng frame work Pytorch. YOLOv5 được giới thiệu bởi Glenn Jocher vào ngày 18/5/2020, YOLOv5 có mã nguồn mở ở [Github](https://github.com/ultralytics/yolov5). Với những số liệu của tác giả cung cấp thì mô hình này khá triển vọng. Tuy nhiên YOLOv4 hiện vẫn chưa có paper chính thức.
 
 <p align="center">
 <img src="images/yolov5_coco.png" style="display: block;margin-left: auto;margin-right: auto; width: 75%"/>
 <br>
-<a style="text-align: center">Hình 24. Perfomance của các phiên bản YOLOv5 trên tập COCO</a>
+<a style="text-align: center">Hình 26. Perfomance của các phiên bản YOLOv5 trên tập COCO</a>
 </p>
 
 <p align="center">
 <img src="images/pre_check.png" style="display: block;margin-left: auto;margin-right: auto; width: 75%"/>
 <br>
-<a style="text-align: center">Hình 25. Kết quả đánh giá trên tập COCO</a>
+<a style="text-align: center">Hình 27. Kết quả đánh giá trên tập COCO</a>
 </p>
 
 * Từ những kết quả mà tác giả đưa ra có thể thấy YOLOv5 có thể đạt tới 68.9% mAP0.5 trên tập COCO.
@@ -368,7 +379,7 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 <p align="center">
 <img src="images/data_yaml.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 26. File data.yaml</a>
+<a style="text-align: center">Hình 28. File data.yaml</a>
 </p>
 
     Trong đó:
@@ -392,12 +403,12 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 <p align="center">
 <img src="images/stopping.jpg" style="display: block;margin-left: auto;margin-right: auto; width: 100%;"/>
 <br>
-<a style="text-align: center">Hình 27. Early stopping YOLOv5</a>
+<a style="text-align: center">Hình 29. Early stopping YOLOv5</a>
 </p>
 
 * Do trong 100 epoch gần nhất thì model không còn tốt lên được nữa (model hội tụ) nên tự động dừng train.
 * Thời gian train model: khoảng 8 tiếng
-* Thời gian test trên 686 ảnh: 32 giây
+* Thời gian test trên 687 ảnh: 32 giây
 
 ## Faster-RCNN:
 ### Sơ lược về Faster RCNN
@@ -407,14 +418,14 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 <p align="center">
   <img src="images/faster.png" />
 </p>
-<p align="center">Hình 28. Cấu trúc Faster RCNN</p>
+<p align="center">Hình 30. Cấu trúc Faster RCNN</p>
 
 ### Thiếp lập training
 * Nhóm sử dụn detectron2 một thư viện của Facebook AI Research để tiến hành huấn luyện cho Faster RCNN.Nhóm đã sử dụng file pretrained weights X-101-32x8d.pkl để tiếp tục train cho model của mình.
 <p align="center">
   <img src="images/faster_yaml.png" /> 
 </p>
-<p align="center">Hình 29. File pretrained được sử dụng </p>
+<p align="center">Hình 31. File pretrained được sử dụng </p>
 
 * Thiết lập thông sô:
   * BATCH_SIZE_PER_IMAGE = 64
@@ -424,7 +435,7 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 * Nhóm chỉ chỉnh sửa một vài thông số để tiến hành việc training.
 ### Train model
 * Thời gian train của Faster RCNN: 12 tiếng
-* Thời gian test trên 686 ảnh: 175 giây
+* Thời gian test trên 687 ảnh: 175 giây
 ## Đánh giá model
 * Thiết lập các ngưỡng để đánh giá
     * confidence thresh: 0.25
@@ -433,10 +444,10 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 <p align="center">
 <img src="images/res_yolov4.jpg" style="display: block;margin-left: auto;margin-right: auto; width: 50%;"/>
 <br>
-<a style="text-align: center">Hình 30. Kết quả đánh giá model YOLOv4</a>
+<a style="text-align: center">Hình 32. Kết quả đánh giá model YOLOv4</a>
 </p>
 
-| Class | mAP@0.5 |
+| Class | AP@0.5 |
 | :---: | --- | 
 | 0 | 1.000 | 
 | 1 | 0.984 |
@@ -447,10 +458,10 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 <p align="center">
 <img src="images/res_yolov5.png" style="display: block;margin-left: auto;margin-right: auto; width: 70%;"/>
 <br>
-<a style="text-align: center">Hình 31. Kết quả đánh giá model YOLOv5s</a>
+<a style="text-align: center">Hình 33. Kết quả đánh giá model YOLOv5s</a>
 </p>
 
-| Class | mAP@0.5 |
+| Class | AP@0.5 |
 | :---: | --- | 
 | 0 | 0.995 | 
 | 1 | 0.99 |
@@ -461,22 +472,93 @@ Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
 <p align="center">
 <img src="images/fasterrcnn_res.jpg" style="display: block;margin-left: auto;margin-right: auto; width: 70%;"/>
 <br>
-<a style="text-align: center">Hình 32. Kết quả đánh giá model Faster RCNN (AP ở đây là mAP@0.5)</a>
+<a style="text-align: center">Hình 34. Kết quả đánh giá model Faster RCNN (AP ở đây là mAP@0.5)</a>
 </p>
 
-| Class | mAP@0.5 |
+| Class | AP@0.5 |
 | :---: | --- | 
 | 0 | 0.987 | 
 | 1 | 0.997 |
 | 2 | 0.999 |
 | 3 | 0.998 |
 
+* Tổng kết đánh giá
+
+| Model\Class | 0 | 1 | 2 | 3|
+| :---: | --- | --- | --- | --- |
+| YOLOv4 | <ins>1.000 </ins> | 0.984| 0.988 | 0.986 |
+| YOLOv5 | 0.995 | 0.99| 0.992 | 0.994 |
+| Faster RCNN | 0.987 | <ins> 0.997 <ins>| <ins>0.999</ins> | <ins>0.998 </ins>|
+    
+🠊 Khi đánh giá bằng điểm AP@0.5, đối với class 0 model YOLOv4 cho kết quả cao nhất. Đối với 3 class còn lại, Faster RCNN đều cho kết quả tốt hơn
+
 | Model | Precision | Recall | mAP@0.5 |
 | :---: | --- | --- | --- |
 | YOLOv4 | 0.900 | 0.98 | 0.989 |
-| YOLOv5s | 0.988 | 0.99 | 0.993 |
-| Faster-RCNN | 0.996 | 0.958 | 0.996 |
+| YOLOv5s | 0.988 | <ins>0.99</ins> | 0.993 |
+| Faster-RCNN | <ins>0.996 </ins> | 0.958 | <ins>0.996</ins> |
+
+🠊 Khi đánh giá bằng mAP@0.5 cả 3 model đều cho kết quả rất tốt. Faster RCNN cho kết quả tốt nhất.
+
+| Model | Thời gian test 687 ảnh (giây) | 
+| :---: | --- | 
+| YOLOv4 | 53 | 
+| YOLOv5s | 32 | 
+| Faster-RCNN | 175 |
+
+🠊 Khi thử nghiệm trên cùng một cấu hình, mặc dù Faster RCNN cho kết quả mAP@0.5 tốt nhất nhưng cũng tốn thời gian nhiều nhất so với 2 model còn lại.
+* Một số hình ảnh test
+<p align="center">
+<img src="images/1.png" style="display: block;margin-left: auto;margin-right: auto; width: 100%;"/>
+<br>
+<a style="text-align: center">Hình 35. Kết quả test</a>
+</p>
+
+    Model YOLOv4 và YOLOv5 detect sai 1 phần lá bị bệnh đốm rong ở góc trên bên trái
+
+<p align="center">
+<img src="images/2.png" style="display: block;margin-left: auto;margin-right: auto; width: 100%;"/>
+<br>
+<a style="text-align: center">Hình 36. Kết quả test</a>
+</p>
+
+    YOLOv5 detect sai loại bệnh (Ground truth là nấm rỉ sắt - Predict đốm rong)
+
+<p align="center">
+<img src="images/3.png" style="display: block;margin-left: auto;margin-right: auto; width: 100%;"/>
+<br>
+<a style="text-align: center">Hình 37. Kết quả test</a>
+</p>
+
+    YOLOv5 detect 1 lá bình thường ở góc trên thành bệnh sâu vẽ bùa
+
+<p align="center">
+<img src="images/4.png" style="display: block;margin-left: auto;margin-right: auto; width: 100%;"/>
+<br>
+<a style="text-align: center">Hình 38. Kết quả test</a>
+</p>
+
+    Cả ba model đều cho kết quả chính xác khi detect được 2 lá bị bệnh.
+
+<p align="center">
+<img src="images/5.png" style="display: block;margin-left: auto;margin-right: auto; width: 100%;"/>
+<br>
+<a style="text-align: center">Hình 39. Kết quả test</a>
+</p>
+
+    YOLOv4 cho kết quả chính xác, Faster RCNN và YOLOv5 detect sai 1 là bình thường ở bên trái thành bệnh sâu vẽ bùa
+
+* Nhìn chung kết quả thử nghiệm đều khá tốt.
+    * Một số lá bình thường bị detect nhầm thành bệnh sâu vẽ bùa và nấm rỉ sắt do 1 số ảnh trong tập train bệnh còn nhẹ và khá giống với lá bình thường
+    * Một số lá bị nấm rỉ sắt nhìn khá giống với bệnh đốm rong làm cho model bị nhầm lẫn.
+    * YOLOv4 và YOLOv5 đều có những trường hợp detect ra 1 phần lá bị bệnh. Trường hợp này xảy ra nhiều hơn đối với model YOLOv5 
 ## Chướng 5. Ứng dụng và hướng phát triển:
 
-## Tài liệu tham khảo:
-Danh & Vinh
+### Ứng dụng:
+* Ứng dụng hướng tới người sử dụng chính là người trồng cà phê, giúp người trồng có thể phát hiện được các loại bệnh xuất hiện trên lá từ đó có thể xử lý đúng cách và hiệu quả.
+* Như đã đề cập trước đó, việc giúp người trồng cà phê phát hiện được bệnh xuất hiện trên lá sẽ góp phần nâng cao được chất lượng sản phẩm cà phê, đáp ứng được các tiêu chuẩn về hàng xuất khẩu từ đó nguồn thu nhập của người dân sẽ được tăng lên. Việc sử các mô hình máy học sẽ thúc đẩy quá trình ứng dụng khoa học kĩ thuật vào trong nông nghiệp.
+
+### Hướng phát triển:
+* Thu thập thêm nhiều dữ liệu về các loại bệnh nhằm giúp ứng dụng phát hiện được nhiều loại bệnh và chính xác hơn.
+* Có thể hướng tới việc phát hiện các loại bệnh trên nhiều loại lá cây nông nghiệp khác nhau dựa trên các đặc điểm giống nhau của các loại bệnh khi xuất hiện trên lá.
+
