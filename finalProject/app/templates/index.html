@@ -31,37 +31,17 @@
                 <img src="static/images/img-500x500.jpg"  class="img-thumbnail" style="width: 500px !important; height: 500px !important;" id="output">
             </div>
         </div>
+    
     </div>
+    <div class="row">
+         <div id="table">
+             
+         </div>   
     </div>
+</div>
 </body>
+<script type="text/javascript" src="static/js/main.js"></script>
 <script>
-    function readPath(event){
-        var src = URL.createObjectURL(event.target.files[0]);
-        var preview = document.getElementById("input");
-        preview.src = src;
-        // preview.style.setProperty("width","500","important");
-        // preview.style.setProperty("height","500","important");
-    }
-    function sendImage(){
-        var img = document.getElementById("img").files[0];
-        var ajax = new XMLHttpRequest();
 
-        var form_data = new FormData();
-        form_data.append('file', document.querySelector('#img').files[0]);
-        
-        ajax.onreadystatechange = function(){
-            if(this.status == 200 && this.readyState == 4){
-                // document.getElementById("output").style.setProperty("width","500","important");
-                // document.getElementById("output").style.setProperty("height","500","important");
-                document.getElementById("output").src = this.responseText;
-                // document.getElementById("output").width = "500";
-                // document.getElementById("height").height = "500";
-                // console.log(this.responseText);
-            }
-        }
-        ajax.open("post","detect",true);
-        // ajax.responseType="blob";
-        ajax.send(form_data);
-    }
 </script>
 </html>

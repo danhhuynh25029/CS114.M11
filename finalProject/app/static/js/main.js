@@ -28,20 +28,23 @@ function readPath(event){
                         tb =  tb  + `<tr>
                             <td>${v}</td>
                             <td>${res_json[v]["name"]}</td>
+                            <td><image with="300" height="200" src=${res_json[v]["image"]}/></td>
                             <td>${res_json[v]["treatment"][0]}</td>
-                            <td>${res_json[v]["treatment"][1]}</td>
+                            <td>${res_json[v]["guide"]}</td>
                         </tr>`;
-                        console.log(res_json[v]["name"]);
+                        console.log(res_json[v]["image"]);
                     }
                 }
+                console.log(tb);
                 var tab = `
                 <table class="table">
                 <thead>
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Tên loại bệnh</th>
-                      <th scope="col">Tên thuốc 1</th>
-                      <th scope="col">Tên thuốc 2</th>
+                      <th scope ="col">Hình thuốc</th>
+                      <th scope="col">Tên thuốc</th>
+                      <th scope="col">Cách dùng</th>
                     </tr>
                       </thead>
                       <tbody>
