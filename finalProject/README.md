@@ -36,13 +36,13 @@
 
 Chương 1.[Tổng quan](#tổng-quan)
 
-Chương 2.[Các nghiên cứu trước](#xây-dựng-bộ-dữ-liệu:)
+Chương 2.[Các nghiên cứu trước](#các-nghiên-cứu-trước)
 
-Chương 3.[Xây dựng bộ dữ liệu](#mô-hình-sử-dụng:)
+Chương 3.[Xây dựng bộ dữ liệu](#xây-dựng-bộ-dữ-liệu)
 
-Chương 4.[Training và đánh giá model](#phương-pháp-đánh-giá:)
+Chương 4.[Training và đánh giá model](#training-và-đánh-giá-model)
 
-Chương 5.[Ứng dụng và hướng phát triển](#đánh-giá-kết-quả:)
+Chương 5.[Ứng dụng và hướng phát triển](#ứng-dụng-và-hướng-phát-triển)
 
 # Chương 1. TỔNG QUAN
 
