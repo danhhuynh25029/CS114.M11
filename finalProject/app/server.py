@@ -1,4 +1,4 @@
-from crypt import methods
+#from crypt import methods
 from ctypes import resize
 from email.mime import image
 from flask import Flask,render_template,request
@@ -31,13 +31,15 @@ class YoloV4:
         h = img.shape[0]
         w = img.shape[1]
         # img = cv2.resize(img,(416,416))
+        i = 0
         classIds, scores, boxes = self.model.detect(img, confThreshold=0.25, nmsThreshold=0.4)
         for (classId, score, box) in zip(classIds, scores, boxes):
             index = random.randint(1,3)
             cv2.rectangle(img, (box[0], box[1]), (box[0] + box[2], box[1] + box[3]),
                     color=self.color[index], thickness=2)
     
-            text = '%s: %.2f' % (self.classes[classIds[0]], score)
+            text = '%s: %.2f' % (self.classes[classIds[i]], score)
+            print(classId)
             if box[1] < 100:
                 cv2.rectangle(img,(box[0],box[1] + box[3]),(box[0]+300, box[1] + box[3]+ 30),self.color[index],-1)
                 cv2.putText(img, text, (box[0], box[1] + box[3]+ 20), cv2.FONT_HERSHEY_SIMPLEX, 1,
@@ -46,6 +48,7 @@ class YoloV4:
                 cv2.rectangle(img,(box[0],box[1]-30),(box[0]+300, box[1]),self.color[index],-1)
                 cv2.putText(img, text, (box[0], box[1] - 5), cv2.FONT_HERSHEY_SIMPLEX, 1,
                 color=(255,255,255), thickness=2)
+            i += 1
         name = path.split(".jpg")
         imgDetected = "{}.jpg".format(name[0]+"_detected")
         img = cv2.resize(img,(w,h))
