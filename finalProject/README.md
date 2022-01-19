@@ -412,7 +412,7 @@ Chương 5.[Ứng dụng và hướng phát triển](#ứng-dụng-và-hướng-
 
 ## Faster-RCNN:
 ### Sơ lược về Faster RCNN
-* Faster-RCNN được đề xuất bởi Shaoqing Ren, Kaiming He, Ross Girshick, Jian Sun.
+* Faster-RCNN được giới thiệu bởi Shaoqing Ren, Kaiming He, Ross Girshick, Jian Sun.Trong bài báo [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/abs/1506.01497)
 * Faster-RCNN  là một phương pháp phát hiện đối tượng sử dụng deep learning.Faster RCNN là một sự cải tiến dựa trên hai phương pháp  trước đó là RCNN và Fast RCNN. Faster RCNN là sự kết hợp giữa Fast-RCNN với  một mạng mới có tên gọi là region proposal network(rpn).
 * Region Proposal Netwok là một mạng Convolutional Neural Network(CNN) có chức năng để tìm ra các vùng có khả năng chứa đối tượng thường dược gọi là region proposal
 * Fast-RCNN là một mạng CNN dùng để trích xuất các features từ các region proposal và trả ra các bounding box cùng với label cho từng cái bounding box đó.
