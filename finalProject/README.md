@@ -427,6 +427,24 @@
 * Thời gian train của Faster RCNN: 12 tiếng
 * Thời gian test trên 687 ảnh: 175 giây
 ## Đánh giá model
+* Để đánh giá model thì nhóm sử dụng mean average precision để đánh giá model.Trước tiên để hiểu được mean average là gì thì trước tiên chúng tôi sẽ giới thiệu về IOU.
+* IOU là tỷ lệ giữa phần giao của bounding box dự đoán vói ground truth(vùng đối tượng thật mà chúng tôi label) và phần hợp của chúng.
+<p align="center">
+  <img src="images/ctiou.png">
+</p>
+
+* Giá trị IOU trong khoảng (0,1).Dựa vào đó chúng tôi có thể xác định được wrong detection hay correct detection.Chúng tôi sẽ dựa vào ngưỡng để xác định.Nếu IOU lớn hơn hoặc bằng ngưỡng thì đó là một correct detection còn lại thì là wrong detection.
+
+* Dựa vào những khái niệm trên chúng ta định nghĩa True/false positive/negative.
+
+  * True Positive (TP): IoU lớn hơn hoặc bằng ngưỡng, là một correct detection
+  
+  * False Positive (FP): IoU bé hơn ngưỡng, là một wrong detection
+  
+  * False Negative (FN): trường hợp mà ground truth không có predicted bounding box
+
+* Nêu có nhiều predicted bounding box xếp chồng lên nhau trong cùng một ground truth thì ta sẽ chọn predicted bounding box nào có IOU lớn hơn ngưỡng cao nhất là True Positive,còn lại là False Positive.
+ 
 * Thiết lập các ngưỡng để đánh giá
     * confidence thresh: 0.25
     * iou thresh: 0.5
