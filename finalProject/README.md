@@ -32,17 +32,6 @@
 [4]:https://www.facebook.com/phuvinh0107
 [5]:https://www.facebook.com/tuanminh.vo.73
 
-## Bảng mục lục
-
-Chương 1.[Tổng quan](#tổng-quan)
-
-Chương 2.[Các nghiên cứu trước](#các-nghiên-cứu-trước)
-
-Chương 3.[Xây dựng bộ dữ liệu](#xây-dựng-bộ-dữ-liệu)
-
-Chương 4.[Training và đánh giá model](#training-và-đánh-giá-model)
-
-Chương 5.[Ứng dụng và hướng phát triển](#ứng-dụng-và-hướng-phát-triển)
 
 # Chương 1. TỔNG QUAN
 
