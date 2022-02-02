@@ -427,15 +427,15 @@
 * Thời gian train của Faster RCNN: 12 tiếng
 * Thời gian test trên 687 ảnh: 175 giây
 ## Đánh giá model
-* Để đánh giá model thì nhóm sử dụng mean average precision để đánh giá model.Trước tiên để hiểu được mean average là gì thì trước tiên chúng tôi sẽ giới thiệu về IOU.
+* Để đánh giá model thì nhóm sử dụng mean average precision để đánh giá model.Trước tiên để hiểu được mean average là gì thì trước tiên chúng tôi sẽ giới thiệu một số khái niệm cơ bản.
 * IOU là tỷ lệ giữa phần giao của bounding box dự đoán vói ground truth(vùng đối tượng thật mà chúng tôi label) và phần hợp của chúng.
 <p align="center">
-  <img src="images/ctiou.png">
+  <img src="images/ctiou.png" width="500" height="400">
 </p>
 
-* Giá trị IOU trong khoảng (0,1).Dựa vào đó chúng tôi có thể xác định được wrong detection hay correct detection.Chúng tôi sẽ dựa vào ngưỡng để xác định.Nếu IOU lớn hơn hoặc bằng ngưỡng thì đó là một correct detection còn lại thì là wrong detection.
+* Giá trị IOU trong khoảng (0,1).Dựa vào đó có thể xác định được wrong detection hay correct detection.Dựa vào ngưỡng để xác định.Nếu IOU lớn hơn hoặc bằng ngưỡng thì đó là một correct detection còn lại thì là wrong detection.
 
-* Dựa vào những khái niệm trên chúng ta định nghĩa True/false positive/negative.
+* Dựa vào những khái niệm trên để định nghĩa True/false positive/negative.
 
   * True Positive (TP): IoU lớn hơn hoặc bằng ngưỡng, là một correct detection
   
@@ -444,7 +444,19 @@
   * False Negative (FN): trường hợp mà ground truth không có predicted bounding box
 
 * Nêu có nhiều predicted bounding box xếp chồng lên nhau trong cùng một ground truth thì ta sẽ chọn predicted bounding box nào có IOU lớn hơn ngưỡng cao nhất là True Positive,còn lại là False Positive.
- 
+
+<p align="center">
+  <img src="images/AP.jpg" width="500" height="400">
+</p>
+* AP là diện tích màu xanh nằm dưới đường cong.
+* Mỗi lớp bài toán sẽ có một giá trị AP,Mean Average Precision là trung bình AP cho tất cả các lớp.
+
+* **Lý do chọn mean average precision là metric để đánh giá mô hình :** 
+  
+  * Mối quan hệ giữa precision – recall giúp mAP đánh giá được về độ chính xác của mô hình.
+  
+  * Precision – Recall thay đổi khi ngưỡng IoU thay đổi.Do đó, tại một giá trị IoU xác định,ta có thể do/đánh giá được mô hình một cách tốt nhất.
+
 * Thiết lập các ngưỡng để đánh giá
     * confidence thresh: 0.25
     * iou thresh: 0.5
