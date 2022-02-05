@@ -5,7 +5,7 @@
 * ### Window:
 <pre>pip install -r requirements.txt</pre>
 
-# Cách chạy ứn dụng:
+# Cách chạy ứng dụng:
 
 * ### Linux:
 <pre>python3 server.py</pre>

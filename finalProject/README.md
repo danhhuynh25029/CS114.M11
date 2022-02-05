@@ -32,13 +32,16 @@
 [4]:https://www.facebook.com/phuvinh0107
 [5]:https://www.facebook.com/tuanminh.vo.73
 
+# Chương 0.Giải trình chỉnh sửa sau vấn đáp
+## Cách để đánh giá mô hình:
+* Nhóm đã tiến hành cập nhật về  đánh gái mô hình và cách xác định True Positive,False Positive sau những góp ý của thầy.Lý do chọn mean average precision là metric để đánh giá.[link](#Đánh-giá-model)
+## Số lượng số lượng sai sót của mỗi class trong mỗi mô hình:
+* Nhóm tiến hành thống kê True Positive,False Positive của mỗi class trong mỗi mô hình để tiến hành xác định số lượng.[link](#Số-lượng-sai-sót-của-mỗi-class)
 
 # Chương 1. TỔNG QUAN
 
 ## 1.1 Mô tả bài toán
-
 * Ngữ cảnh ứng dụng : 
-    
     * Hiện nay, cà phê là một trong những loại thức uống được sử dụng phổ biến lẫn trong và ngoài nước. Cà phê được sản xuất từ những hạt cà phê rang, lấy trên cây cà phê.
 
     <p align="center">
@@ -427,7 +430,7 @@
 ### Train model
 * Thời gian train của Faster RCNN: 12 tiếng
 * Thời gian test trên 687 ảnh: 175 giây
-## Đánh giá model
+### Đánh giá model
 * Để đánh giá model thì nhóm sử dụng mean average precision để đánh giá model. Trước tiên để hiểu được mean average là gì thì trước tiên chúng tôi sẽ giới thiệu một số khái niệm cơ bản.
 * IOU là tỷ lệ giữa phần giao của bounding box dự đoán vói ground truth(vùng đối tượng thật mà chúng tôi label) và phần hợp của chúng.
 <p align="center">
@@ -522,6 +525,25 @@
 <a style="text-align: center">Hình 37. Detection result</a>
 </p>
 
+### Số lượng sai sót của mỗi class:
+* Qua hình ta có thể thấy được số lượng sai sót mỗi thông qua việc đánh giá bằng AP@50
+
+| Model | Class| True Positive | False Positive |
+| :----: | :-----: | :------: | :-----: |
+| YOLOv4 | class0 | 217 | 5 |
+|        | class1 | 60 | 7 |
+|        | class2 | 250 | 44 |
+|        | class3 | 187 | 25 |
+| YOLOv5 | class0 | 217 | 17 |
+|        | class1 | 63 | 26 |
+|        | class2 | 257 | 57|
+|        | class3 | 188 | 25 |
+| FasterRCNN | class0 | 217 | 5 |
+|            | class1 | 63 | 5 |
+|            | class2 | 258 | 14 |
+|            | class3 | 186 | 4 |
+
+* Qua bảng thông kê trên ta có thể thấy model FasterRCNN có số lượng False Positive thấp nhất và số lượng False Positive của model YOLOv5 cao nhất điều đó đòng nghĩa với việc model YOLOv5 có nhiều sai sót hơn 2 model còn lại.
 
 | Model | Precision | Recall | mAP@0.5 |
 | :---: | --- | --- | --- |
