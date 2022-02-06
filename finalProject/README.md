@@ -247,6 +247,7 @@
         1 : Phấn trắng <br>
         2 : Nấm rỉ sắt <br>
         3 : Đốm rong <br>
+    * Dataset được tổ chức lưu trữ trên roboflow. Sử dụng code để tải dataset về trong quá trình train và test.
 # Chương 4. TRAINING VÀ ĐÁNH GIÁ MODEL
 ## Nội dung dataset:
 ### YOLO:

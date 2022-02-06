@@ -1,4 +1,4 @@
-# Chương 3. XÂY DỰNG BỘ DỮ LIỆU
+# XÂY DỰNG BỘ DỮ LIỆU
 * ### Quá trình thu thập:
     * Dữ liệu được nhóm thu thập thủ công bằng camera của điện thoại.
     * Điện thoại sử dụng: Iphone 7 Plus, 32GB.
@@ -54,3 +54,25 @@
     * Trong một ảnh có thể có nhiều lá những chỉ label những lá bị bệnh và thấy rõ từ cuốn lá đến chóp lá.
 
     * Số loại label là 4. Được kí hiệu bằng 1 trong các chữ số 0, 1, 2, 3
+
+* ### Cách sử dụng dataset :
+
+* Tập dữ liệu được chia thành hai tập train và test với tỉ lệ là 80% cho tập train và 20% cho tập test
+    <p align="center">
+    <img src="images/train.png" style="display: block;margin-left: auto;margin-right: auto;"/>
+    <br>
+    <a style="text-align: center">Hình 15. Số lượng object thuộc từng loại label trong tập train.</a>
+    </p>
+    <p align="center">
+    <img src="images/test.png" style="display: block;margin-left: auto;margin-right: auto;"/>
+    <br>
+    <a style="text-align: center">Hình 16. Số lượng object thuộc từng loại label trong tập test.</a>
+    </p>
+
+    Trong đó: <br>
+        0 : Sâu vẽ bùa <br>
+        1 : Phấn trắng <br>
+        2 : Nấm rỉ sắt <br>
+        3 : Đốm rong <br>
+
+* Dataset được tổ chức lưu trữ trên roboflow. Sử dụng code để tải dataset về trong quá trình train và test
