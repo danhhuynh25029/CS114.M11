@@ -1,5 +1,0 @@
-classes=4
-train=train.txt
-valid=valid.txt
-names=obj.names
-backup=backup
