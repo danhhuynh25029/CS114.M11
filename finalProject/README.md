@@ -37,7 +37,8 @@
 * Nhóm đã tiến hành cập nhật về  đánh gái mô hình và cách xác định True Positive,False Positive sau những góp ý của thầy.Lý do chọn mean average precision là metric để đánh giá.[link](#Đánh-giá-model)
 ## Số lượng số lượng sai sót của mỗi class trong mỗi mô hình:
 * Nhóm tiến hành thống kê True Positive,False Positive của mỗi class trong mỗi mô hình để tiến hành xác định số lượng.[link](#Số-lượng-sai-sót-của-mỗi-class)
-
+## Định dạng của dataset dùng để tranning model:
+* Nhóm đã tiến hành tìm hiểu và xác định nội dung dataset dùng để trainning model.[link](#Nội-dung-dataset)
 # Chương 1. TỔNG QUAN
 
 ## 1.1 Mô tả bài toán
@@ -247,9 +248,21 @@
         2 : Nấm rỉ sắt <br>
         3 : Đốm rong <br>
 # Chương 4. TRAINING VÀ ĐÁNH GIÁ MODEL
+## Nội dung dataset:
+### YOLO:
+* Đối với model yolo thì trong tập dataset sẽ gồm các file ảnh và các file *.txt ứng với mỗi tấm ảnh.
+* Nội dung của file txt:
+    * Số nguyên có giá trị từ 0 -> số class - 1
+    * Giá trị x,y.
+    * Giá trị width,height.
+### Faster-RCNN:
+* Đối với model faster-rcnn thì sẽ gồm các file ảnh và một file json chứa thông tin của tất cả các tấm ảnh trong dataset.Bao gồm một số nguyên xác định class và vị trí bounding box.
+* Vị trí bouding box được xác định:
+    * Giá trị x,y
+    * Giá trị width,height.
 ## Cấu hình train và test:
 Để train model nhóm sử dụng tài nguyên của Google Colab với thiết lập runtime type là GPU
-
+da
 <p align="center">
 <img src="images/runtime.png" style="display: block;margin-left: auto;margin-right: auto; width: 30%; height:30%"/>
 <br>
