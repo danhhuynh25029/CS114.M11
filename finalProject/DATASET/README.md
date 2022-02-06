@@ -59,12 +59,12 @@
 
 * Tập dữ liệu được chia thành hai tập train và test với tỉ lệ là 80% cho tập train và 20% cho tập test
     <p align="center">
-    <img src="images/train.png" style="display: block;margin-left: auto;margin-right: auto;"/>
+    <img src="../images/train.png" style="display: block;margin-left: auto;margin-right: auto;"/>
     <br>
     <a style="text-align: center">Hình 15. Số lượng object thuộc từng loại label trong tập train.</a>
     </p>
     <p align="center">
-    <img src="images/test.png" style="display: block;margin-left: auto;margin-right: auto;"/>
+    <img src="../images/test.png" style="display: block;margin-left: auto;margin-right: auto;"/>
     <br>
     <a style="text-align: center">Hình 16. Số lượng object thuộc từng loại label trong tập test.</a>
     </p>
