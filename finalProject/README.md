@@ -34,11 +34,11 @@
 
 # Chương 0.Giải trình chỉnh sửa sau vấn đáp
 ## Cách để đánh giá mô hình:
-* Nhóm đã tiến hành cập nhật về  đánh gái mô hình và cách xác định True Positive,False Positive sau những góp ý của thầy.Lý do chọn mean average precision là metric để đánh giá.[link](#Đánh-giá-model)
+* Nhóm đã tiến hành cập nhật về đánh gái mô hình và cách xác định True Positive, False Positive sau những góp ý của thầy. Lý do chọn mean average precision là metric để đánh giá. [link](#Đánh-giá-model)
 ## Số lượng số lượng sai sót của mỗi class trong mỗi mô hình:
-* Nhóm tiến hành thống kê True Positive,False Positive của mỗi class trong mỗi mô hình để tiến hành xác định số lượng.[link](#Số-lượng-sai-sót-của-mỗi-class)
+* Nhóm tiến hành thống kê True Positive ,False Positive của mỗi class trong mỗi mô hình để tiến hành xác định số lượng. [link](#Số-lượng-sai-sót-của-mỗi-class)
 ## Định dạng của dataset dùng để tranning model:
-* Nhóm đã tiến hành tìm hiểu và xác định nội dung dataset dùng để trainning model.[link](#Nội-dung-dataset)
+* Nhóm đã tiến hành tìm hiểu và xác định nội dung dataset dùng để trainning model. [link](#Nội-dung-dataset)
 # Chương 1. TỔNG QUAN
 
 ## 1.1 Mô tả bài toán
@@ -533,13 +533,20 @@ da
     
 🠊 Khi đánh giá bằng điểm AP@0.5, đối với class 0 model YOLOv4 cho kết quả cao nhất. Đối với 3 class còn lại, Faster RCNN đều cho kết quả tốt hơn
 
+### Số lượng sai sót của mỗi class:
+
+<p align="center">
+<img src="images/ground-truth-info.png" style="display: block;margin-left: auto;margin-right: auto; width: 40%;"/>
+<br>
+<a style="text-align: center">Hình 37. Ground truth</a>
+</p>
+
 <p align="center">
 <img src="images/results_pre.png" style="display: block;margin-left: auto;margin-right: auto;"/>
 <br>
-<a style="text-align: center">Hình 37. Detection result</a>
+<a style="text-align: center">Hình 38. Detection result</a>
 </p>
 
-### Số lượng sai sót của mỗi class:
 * Qua hình ta có thể thấy được số lượng sai sót mỗi thông qua việc đánh giá bằng AP@50
 
 | Model | Class| True Positive | False Positive |
@@ -578,7 +585,7 @@ da
 <p align="center">
 <img src="images/1.png" style="display: block;margin-left: auto;margin-right: auto; width: 120%;"/>
 <br>
-<a style="text-align: center">Hình 38. Kết quả test</a>
+<a style="text-align: center">Hình 39. Kết quả test</a>
 </p>
 
     Model YOLOv4 và YOLOv5 detect sai 1 phần lá bị bệnh đốm rong ở góc trên bên trái
@@ -586,7 +593,7 @@ da
 <p align="center">
 <img src="images/2.png" style="display: block;margin-left: auto;margin-right: auto; width: 120%;"/>
 <br>
-<a style="text-align: center">Hình 39. Kết quả test</a>
+<a style="text-align: center">Hình 40. Kết quả test</a>
 </p>
 
     YOLOv5 detect sai loại bệnh (Ground truth là nấm rỉ sắt - Predict đốm rong)
@@ -594,7 +601,7 @@ da
 <p align="center">
 <img src="images/3.png" style="display: block;margin-left: auto;margin-right: auto; width: 120%;"/>
 <br>
-<a style="text-align: center">Hình 40. Kết quả test</a>
+<a style="text-align: center">Hình 41. Kết quả test</a>
 </p>
 
     YOLOv5 detect 1 lá bình thường ở góc trên thành bệnh sâu vẽ bùa
@@ -602,7 +609,7 @@ da
 <p align="center">
 <img src="images/4.png" style="display: block;margin-left: auto;margin-right: auto; width: 120%;"/>
 <br>
-<a style="text-align: center">Hình 41. Kết quả test</a>
+<a style="text-align: center">Hình 42. Kết quả test</a>
 </p>
 
     Cả ba model đều cho kết quả chính xác khi detect được 2 lá bị bệnh.
@@ -610,7 +617,7 @@ da
 <p align="center">
 <img src="images/5.png" style="display: block;margin-left: auto;margin-right: auto; width: 120%;"/>
 <br>
-<a style="text-align: center">Hình 42. Kết quả test</a>
+<a style="text-align: center">Hình 43. Kết quả test</a>
 </p>
 
     YOLOv4 cho kết quả chính xác, Faster RCNN và YOLOv5 detect sai 1 là bình thường ở bên trái thành bệnh sâu vẽ bùa
