@@ -261,7 +261,7 @@
     <a style="text-align: center">Hình 17. Cách tính các giá trị x, y, width, height.</a>
     </p>
 ### Faster-RCNN:
-* Đối với nhóm sử dụng roboflow để tự chuyển đổi từ định dạng YOLO darknet format sang COCO json format.
+* Đối với Faster-RCNN nhóm sử dụng roboflow để tự chuyển đổi từ định dạng YOLO darknet format sang COCO json format.
 
 ## Cấu hình train và test:
 Để train model nhóm sử dụng tài nguyên của Google Colab với thiết lập runtime type là GPU
