@@ -261,10 +261,8 @@
     <a style="text-align: center">Hình 17. Cách tính các giá trị x, y, width, height.</a>
     </p>
 ### Faster-RCNN:
-* Đối với model faster-rcnn thì sẽ gồm các file ảnh và một file json chứa thông tin của tất cả các tấm ảnh trong dataset.Bao gồm một số nguyên xác định class và vị trí bounding box.
-* Vị trí bouding box được xác định:
-    * Giá trị x,y
-    * Giá trị width,height.
+* Đối với nhóm sử dụng roboflow để tự chuyển đổi từ định dạng YOLO darknet format sang COCO json format.
+
 ## Cấu hình train và test:
 Để train model nhóm sử dụng tài nguyên của Google Colab với thiết lập runtime type là GPU
 da
