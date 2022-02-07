@@ -478,7 +478,7 @@ da
 * AP là diện tích màu xanh nằm dưới đường cong.
 * Mỗi lớp bài toán sẽ có một giá trị AP, Mean Average Precision là trung bình AP cho tất cả các lớp.
 
-* **Lý do chọn mean average precision là metric để đánh giá mô hình :** 
+* **🠊Lý do chọn mean average precision là metric để đánh giá mô hình :** 
   
   * Mối quan hệ giữa precision – recall giúp mAP đánh giá được về độ chính xác của mô hình.
   
@@ -520,7 +520,7 @@ da
 <p align="center">
 <img src="images/fasterrcnn_res.jpg" style="display: block;margin-left: auto;margin-right: auto; width: 70%;"/>
 <br>
-<a style="text-align: center">Hình 37. Kết quả đánh giá model Faster RCNN</a>
+<a style="text-align: center">Hình 37. Kết quả đánh giá model Faster RCNN (AP per-category là AP0.5)</a>
 </p>
 
 | Class | AP@0.5 |
@@ -540,7 +540,7 @@ da
     
 🠊 Khi đánh giá bằng điểm AP@0.5, đối với class 0 model YOLOv4 cho kết quả cao nhất. Đối với 3 class còn lại, Faster RCNN đều cho kết quả tốt hơn
 
-### Số lượng sai sót của mỗi class:
+* Số lượng sai sót của mỗi class:
 
 <p align="center">
 <img src="images/ground-truth-info.png" style="display: block;margin-left: auto;margin-right: auto; width: 40%;"/>
@@ -554,7 +554,7 @@ da
 <a style="text-align: center">Hình 39. Detection result</a>
 </p>
 
-* Qua bảng thông kê trên ta có thể thấy model FasterRCNN có số lượng False Positive thấp nhất và số lượng False Positive của model YOLOv5 cao nhất điều đó đòng nghĩa với việc model YOLOv5 có nhiều sai sót hơn 2 model còn lại.
+🠊 Qua các biểu đồ thông kê trên ta có thể thấy rằng số lượng các True Positive được model tìm thấy khá cao và gần bằng so với ground truth. Ở model YOLOv4 và model YOLOv5 có nhiều các False Positive được tìm ra.
 
 | Model | Precision | Recall | mAP@0.5 |
 | :---: | --- | --- | --- |
