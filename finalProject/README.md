@@ -34,7 +34,7 @@
 
 # Chương 0. Giải trình chỉnh sửa sau vấn đáp
 ## Cách để đánh giá mô hình:
-* Nhóm đã tiến hành cập nhật về đánh gái mô hình và cách xác định True Positive, False Positive sau những góp ý của thầy. Lý do chọn mean average precision là metric để đánh giá. [link](#Đánh-giá-model)
+* Nhóm đã tiến hành cập nhật về đánh giá mô hình và cách xác định True Positive, False Positive sau những góp ý của thầy. Lý do chọn mean average precision là metric để đánh giá. [link](#Đánh-giá-model)
 ## Số lượng số lượng sai sót của mỗi class trong mỗi mô hình:
 * Nhóm tiến hành thống kê True Positive ,False Positive của mỗi class trong mỗi mô hình để tiến hành xác định số lượng. [link](#Số-lượng-sai-sót-của-mỗi-class)
 ## Định dạng của dataset dùng để tranning model:
@@ -251,11 +251,15 @@
 # Chương 4. TRAINING VÀ ĐÁNH GIÁ MODEL
 ## Nội dung dataset:
 ### YOLO:
-* Đối với model yolo thì trong tập dataset sẽ gồm các file ảnh và các file *.txt ứng với mỗi tấm ảnh.
-* Nội dung của file txt:
-    * Số nguyên có giá trị từ 0 -> số class - 1
-    * Giá trị x,y.
-    * Giá trị width,height.
+* Đối với các model YOLO thì trong tập dataset sẽ gồm các file ảnh và các file *.txt ứng với mỗi tấm ảnh.
+* Nội dung của file txt: mỗi object được biểu diễn bằng 1 dòng \<object-class> \<x> \<y> \<width> \<height>
+    * Trong đó \<object-class> là số nguyên trong đoạn [0, 3]
+    * \<x> \<y> \<width> \<height> là các số thực được chuẩn hóa có giá trị nằm trong đoạn [0, 1], biểu diễn bouding box của đối tượng.
+    <p align="center">
+    <img src="images/yoloformat.png" style="display: block;margin-left: auto;margin-right: auto; width: 70%;"/>
+    <br>
+    <a style="text-align: center">Hình 17. Cách tính các giá trị x, y, width, height.</a>
+    </p>
 ### Faster-RCNN:
 * Đối với model faster-rcnn thì sẽ gồm các file ảnh và một file json chứa thông tin của tất cả các tấm ảnh trong dataset.Bao gồm một số nguyên xác định class và vị trí bounding box.
 * Vị trí bouding box được xác định:
@@ -267,20 +271,20 @@ da
 <p align="center">
 <img src="images/runtime.png" style="display: block;margin-left: auto;margin-right: auto; width: 30%; height:30%"/>
 <br>
-<a style="text-align: center">Hình 17. Bật GPU trên Google Colab.</a>
+<a style="text-align: center">Hình 18. Bật GPU trên Google Colab.</a>
 </p>
 
 <p align="center">
 <img src="images/cauhinhtrain.jpg" style="display: block;margin-left: auto;margin-right: auto;width: 50%"/>
 <br>
-<a style="text-align: center">Hình 18. Cấu hình dùng để train và test.</a>
+<a style="text-align: center">Hình 19. Cấu hình dùng để train và test.</a>
 </p>
 
 ## YOLOv4:
 <p align="center">
 <img src="images/yolov4_archi.png" style="display: block;margin-left: auto;margin-right: auto; width: 75%"/>
 <br>
-<a style="text-align: center">Hình 19. Cấu trúc mô hình YOLOv4.</a>
+<a style="text-align: center">Hình 20. Cấu trúc mô hình YOLOv4.</a>
 </p>
 
 ### Sơ lược về YOLOv4
@@ -292,7 +296,7 @@ da
 <p align="center">
 <img src="images/yolov4_compare.jpeg" style="display: block;margin-left: auto;margin-right: auto; width: 75%"/>
 <br>
-<a style="text-align: center">Hình 20. So sánh YOLOv4 với các mô hình khác.</a>
+<a style="text-align: center">Hình 21. So sánh YOLOv4 với các mô hình khác.</a>
 </p>
 
 * Kết quả so sánh YOLOv4 với các mô hình khác ở thời điểm hiện tại. YOLOv4 chạy nhanh gấp đôi EfficientDet và tăng AP và FPS so với YOLOv3 lần lượt là 10% và 12%. Hình ảnh từ paper YOLOv4. Nhìn vào biểu đồ, ta dễ dàng thấy được sự hiệu quả của YOLOv4 so với các mạng tốt nhất hiện nay. Cụ thể hơn YOLOv4 đạt 43.5% AP trên tập dữ liệu MS COCO ở tốc độ 65 FPS, trên GPU Tesla V100. 
@@ -304,7 +308,7 @@ da
 <p align="center">
 <img src="images/configmakefile.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 21. Thiết lập các thông số Makefile để sử dụng GPU.</a>
+<a style="text-align: center">Hình 22. Thiết lập các thông số Makefile để sử dụng GPU.</a>
 </p>
 
 * Chỉnh sửa các thông số của model YOLOv4 trong file yolov4-custom.cfg theo hướng dẫn của tác giả:
@@ -320,7 +324,7 @@ da
 <p align="center">
 <img src="images/path_train.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 22. File train.txt</a>
+<a style="text-align: center">Hình 23. File train.txt</a>
 </p>
 
 
@@ -328,21 +332,21 @@ da
 <p align="center">
 <img src="images/path_valid.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 23. File valid.txt</a>
+<a style="text-align: center">Hình 24. File valid.txt</a>
 </p>
 
 * Tạo file obj.names chứa tên của các class
 <p align="center">
 <img src="images/obj.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 24. File obj.names</a>
+<a style="text-align: center">Hình 25. File obj.names</a>
 </p>
 
 * Tạo file obj.data có nội dung như sau
 <p align="center">
 <img src="images/obj_data.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 25. File obj.data</a>
+<a style="text-align: center">Hình 26. File obj.data</a>
 </p>
 
     Trong đó:
@@ -369,13 +373,13 @@ da
 <p align="center">
 <img src="images/yolov5_coco.png" style="display: block;margin-left: auto;margin-right: auto; width: 75%"/>
 <br>
-<a style="text-align: center">Hình 26. Perfomance của các phiên bản YOLOv5 trên tập COCO</a>
+<a style="text-align: center">Hình 27. Perfomance của các phiên bản YOLOv5 trên tập COCO</a>
 </p>
 
 <p align="center">
 <img src="images/pre_check.png" style="display: block;margin-left: auto;margin-right: auto; width: 75%"/>
 <br>
-<a style="text-align: center">Hình 27. Kết quả đánh giá trên tập COCO</a>
+<a style="text-align: center">Hình 28. Kết quả đánh giá trên tập COCO</a>
 </p>
 
 * Từ những kết quả mà tác giả đưa ra có thể thấy YOLOv5 có thể đạt tới 68.9% mAP0.5 trên tập COCO.
@@ -385,7 +389,7 @@ da
 <p align="center">
 <img src="images/data_yaml.png" style="display: block;margin-left: auto;margin-right: auto; width: 20%; height:20%;"/>
 <br>
-<a style="text-align: center">Hình 28. File data.yaml</a>
+<a style="text-align: center">Hình 29. File data.yaml</a>
 </p>
 
     Trong đó:
@@ -409,7 +413,7 @@ da
 <p align="center">
 <img src="images/stopping.jpg" style="display: block;margin-left: auto;margin-right: auto; width: 100%;"/>
 <br>
-<a style="text-align: center">Hình 29. Early stopping YOLOv5</a>
+<a style="text-align: center">Hình 30. Early stopping YOLOv5</a>
 </p>
 
 * Do trong 100 epoch gần nhất thì model không còn tốt lên được nữa (model hội tụ) nên tự động dừng train.
@@ -425,7 +429,7 @@ da
 <p align="center">
   <img src="images/faster.png" />
 </p>
-<p align="center">Hình 30. Cấu trúc Faster RCNN</p>
+<p align="center">Hình 31. Cấu trúc Faster RCNN</p>
 
 ### Thiếp lập training
 * Nhóm sử dụn detectron2 một thư viện của Facebook AI Research để tiến hành huấn luyện cho Faster RCNN. Nhóm đã sử dụng file pretrained weights X-101-32x8d.pkl để tiếp tục train cho model của mình.
@@ -433,7 +437,7 @@ da
 <p align="center">
   <img src="images/faster_yaml.png" style="display: block;margin-left: auto;margin-right: auto; width: 50%;"/> 
 </p>
-<p align="center">Hình 31. File pretrained được sử dụng </p>
+<p align="center">Hình 32. File pretrained được sử dụng </p>
 
 * Thiết lập thông sô:
   * BATCH_SIZE_PER_IMAGE = 64
@@ -450,7 +454,7 @@ da
 <p align="center">
   <img src="images/ctiou.png" width="500" height="400">
 </p>
-<p align="center">Hình 32. Độ đo IOU </p>
+<p align="center">Hình 33. Độ đo IOU </p>
 
 * Giá trị IOU trong khoảng (0,1). Dựa vào đó có thể xác định được wrong detection hay correct detection. Dựa vào ngưỡng để xác định. Nếu IOU lớn hơn hoặc bằng ngưỡng thì đó là một correct detection còn lại thì là wrong detection.
 
@@ -467,7 +471,7 @@ da
 <p align="center">
   <img src="images/AP.jpg" width="500" height="400">
 </p>
-<p align="center">Hình 33. AP </p>
+<p align="center">Hình 34. AP </p>
 
 * AP là diện tích màu xanh nằm dưới đường cong.
 * Mỗi lớp bài toán sẽ có một giá trị AP, Mean Average Precision là trung bình AP cho tất cả các lớp.
@@ -485,7 +489,7 @@ da
 <p align="center">
 <img src="images/res_yolov4.jpg" style="display: block;margin-left: auto;margin-right: auto; width: 50%;"/>
 <br>
-<a style="text-align: center">Hình 34. Kết quả đánh giá model YOLOv4</a>
+<a style="text-align: center">Hình 35. Kết quả đánh giá model YOLOv4</a>
 </p>
 
 | Class | AP@0.5 |
@@ -499,7 +503,7 @@ da
 <p align="center">
 <img src="images/res_yolov5.png" style="display: block;margin-left: auto;margin-right: auto; width: 70%;"/>
 <br>
-<a style="text-align: center">Hình 35. Kết quả đánh giá model YOLOv5s</a>
+<a style="text-align: center">Hình 36. Kết quả đánh giá model YOLOv5s</a>
 </p>
 
 | Class | AP@0.5 |
@@ -513,7 +517,7 @@ da
 <p align="center">
 <img src="images/fasterrcnn_res.jpg" style="display: block;margin-left: auto;margin-right: auto; width: 70%;"/>
 <br>
-<a style="text-align: center">Hình 36. Kết quả đánh giá model Faster RCNN</a>
+<a style="text-align: center">Hình 37. Kết quả đánh giá model Faster RCNN</a>
 </p>
 
 | Class | AP@0.5 |
@@ -538,13 +542,13 @@ da
 <p align="center">
 <img src="images/ground-truth-info.png" style="display: block;margin-left: auto;margin-right: auto; width: 40%;"/>
 <br>
-<a style="text-align: center">Hình 37. Ground truth</a>
+<a style="text-align: center">Hình 38. Ground truth</a>
 </p>
 
 <p align="center">
 <img src="images/results_pre.png" style="display: block;margin-left: auto;margin-right: auto;"/>
 <br>
-<a style="text-align: center">Hình 38. Detection result</a>
+<a style="text-align: center">Hình 39. Detection result</a>
 </p>
 
 * Qua hình ta có thể thấy được số lượng sai sót mỗi thông qua việc đánh giá bằng AP@50
@@ -569,8 +573,8 @@ da
 | Model | Precision | Recall | mAP@0.5 |
 | :---: | --- | --- | --- |
 | YOLOv4 | 0.900 | 0.98 | 0.989 |
-| YOLOv5s | 0.988 | <ins>0.99</ins> | 0.993 |
-| Faster-RCNN | <ins>0.996 </ins> | 0.997 | <ins>0.996</ins> |
+| YOLOv5s | 0.988 | 0.99 | 0.993 |
+| Faster-RCNN | <ins>0.996 </ins> | <ins>0.997<ins> | <ins>0.996</ins> |
 
 🠊 Khi đánh giá bằng mAP@0.5 cả 3 model đều cho kết quả rất tốt. Faster RCNN cho kết quả tốt nhất.
 
@@ -585,7 +589,7 @@ da
 <p align="center">
 <img src="images/1.png" style="display: block;margin-left: auto;margin-right: auto; width: 120%;"/>
 <br>
-<a style="text-align: center">Hình 39. Kết quả test</a>
+<a style="text-align: center">Hình 40. Kết quả test</a>
 </p>
 
     Model YOLOv4 và YOLOv5 detect sai 1 phần lá bị bệnh đốm rong ở góc trên bên trái
@@ -593,7 +597,7 @@ da
 <p align="center">
 <img src="images/2.png" style="display: block;margin-left: auto;margin-right: auto; width: 120%;"/>
 <br>
-<a style="text-align: center">Hình 40. Kết quả test</a>
+<a style="text-align: center">Hình 41. Kết quả test</a>
 </p>
 
     YOLOv5 detect sai loại bệnh (Ground truth là nấm rỉ sắt - Predict đốm rong)
@@ -601,7 +605,7 @@ da
 <p align="center">
 <img src="images/3.png" style="display: block;margin-left: auto;margin-right: auto; width: 120%;"/>
 <br>
-<a style="text-align: center">Hình 41. Kết quả test</a>
+<a style="text-align: center">Hình 42. Kết quả test</a>
 </p>
 
     YOLOv5 detect 1 lá bình thường ở góc trên thành bệnh sâu vẽ bùa
@@ -609,7 +613,7 @@ da
 <p align="center">
 <img src="images/4.png" style="display: block;margin-left: auto;margin-right: auto; width: 120%;"/>
 <br>
-<a style="text-align: center">Hình 42. Kết quả test</a>
+<a style="text-align: center">Hình 43. Kết quả test</a>
 </p>
 
     Cả ba model đều cho kết quả chính xác khi detect được 2 lá bị bệnh.
@@ -617,7 +621,7 @@ da
 <p align="center">
 <img src="images/5.png" style="display: block;margin-left: auto;margin-right: auto; width: 120%;"/>
 <br>
-<a style="text-align: center">Hình 43. Kết quả test</a>
+<a style="text-align: center">Hình 44. Kết quả test</a>
 </p>
 
     YOLOv4 cho kết quả chính xác, Faster RCNN và YOLOv5 detect sai 1 là bình thường ở bên trái thành bệnh sâu vẽ bùa
