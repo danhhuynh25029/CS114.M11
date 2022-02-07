@@ -32,7 +32,7 @@
 [4]:https://www.facebook.com/phuvinh0107
 [5]:https://www.facebook.com/tuanminh.vo.73
 
-# Chương 0.Giải trình chỉnh sửa sau vấn đáp
+# Chương 0. Giải trình chỉnh sửa sau vấn đáp
 ## Cách để đánh giá mô hình:
 * Nhóm đã tiến hành cập nhật về đánh gái mô hình và cách xác định True Positive, False Positive sau những góp ý của thầy. Lý do chọn mean average precision là metric để đánh giá. [link](#Đánh-giá-model)
 ## Số lượng số lượng sai sót của mỗi class trong mỗi mô hình:
