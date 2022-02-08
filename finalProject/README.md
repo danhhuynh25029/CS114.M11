@@ -34,11 +34,11 @@
 
 # Chương 0. Giải trình chỉnh sửa sau vấn đáp
 ## Cách để đánh giá mô hình:
-* Nhóm đã tiến hành cập nhật về đánh giá mô hình và cách xác định True Positive, False Positive sau những góp ý của thầy. Lý do chọn mean average precision là metric để đánh giá. [link](#Đánh-giá-model)
+* Nhóm đã tiến hành cập nhật về đánh giá mô hình và cách xác định True Positive, False Positive sau những góp ý của thầy. Lý do chọn mean average precision là metric để đánh giá. [link](#46-đánh-giá-model)
 ## Số lượng số lượng sai sót của mỗi class trong mỗi mô hình:
-* Nhóm tiến hành thống kê True Positive ,False Positive của mỗi class trong mỗi mô hình để tiến hành xác định số lượng. [link](#Số-lượng-sai-sót-của-mỗi-class)
+* Nhóm tiến hành thống kê True Positive ,False Positive của mỗi class trong mỗi mô hình để tiến hành xác định số lượng. [link](#462-kết-quả-đánh-giá)
 ## Định dạng của dataset dùng để tranning model:
-* Nhóm đã tiến hành tìm hiểu và xác định nội dung dataset dùng để trainning model. [link](#Nội-dung-dataset)
+* Nhóm đã tiến hành tìm hiểu và xác định nội dung dataset dùng để trainning model. [link](#41-nội-dung-dataset)
 # Chương 1. TỔNG QUAN
 
 ## 1.1. Mô tả bài toán
@@ -626,3 +626,10 @@ da
 * Thu thập thêm nhiều dữ liệu về các loại bệnh nhằm giúp ứng dụng phát hiện được nhiều loại bệnh và chính xác hơn.
 * Có thể hướng tới việc phát hiện các loại bệnh trên nhiều loại lá cây nông nghiệp khác nhau dựa trên các đặc điểm giống nhau của các loại bệnh khi xuất hiện trên lá.
 
+## Chương 6. Demo:
+<p align="center">
+    <img src="images/demo.png" style="height:70%;width:70%"><br>
+    <a style="text-align: center">Hình 45. Demo</a>
+</p>
+
+* Source code : [https://github.com/danhhuynh25029/CS114.M11/tree/main/finalProject/app](https://github.com/danhhuynh25029/CS114.M11/tree/main/finalProject/app)
