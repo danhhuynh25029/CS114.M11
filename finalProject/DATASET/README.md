@@ -76,3 +76,8 @@
         3 : Đốm rong <br>
 
 * Dataset được tổ chức lưu trữ trên roboflow. Sử dụng code để tải dataset về trong quá trình train và test
+* ### Link github : 
+* [https://github.com/danhhuynh25029/CS114.M11/edit/main/finalProject/DATASET/](https://github.com/danhhuynh25029/CS114.M11/edit/main/finalProject/DATASET/)
+
+* ### Link google drive :
+* [https://drive.google.com/drive/folders/1cX9aX4l3An5Di6ES1HZZIGwf9k6i6Uxo?usp=sharing](https://drive.google.com/drive/folders/1cX9aX4l3An5Di6ES1HZZIGwf9k6i6Uxo?usp=sharing)
